@@ -33,6 +33,7 @@ struct Stack {
        *data = head->data; 
        Node * temp = head;
        head = head->next; 
+       delete temp;
        return true;
      }
      return false;
