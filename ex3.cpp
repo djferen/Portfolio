@@ -1,64 +1,70 @@
 #include <cstddef>
 #include <iostream>
 
-struct Node {
-     int val;
-     Node *next;
-     Node(int x) : val(x), next(NULL) {}
-     Node(): val(0), next(NULL){}
-};
-
-struct LinkedList {
-
-  Node* head;
-  LinkedList(){head = NULL;}
-
-void push(int data)
+struct Node
 {
-  Node * newnode = new Node(data);
-  newnode->next = head;
-  head = newnode;
-}
+  int val;
+  Node *next;
 
-void print()
-{
-  Node * iter = head;
-  while(iter)
+    Node (int x):val (x), next (NULL)
   {
-    std::cout << iter->val << std::endl; 
-    iter = iter->next;
   }
-}
 
+  Node ():val (0), next (NULL)
+  {
+  }
 };
 
-void print(Node * a)
+struct LinkedList
 {
-  Node * iter = a;
-  while(iter)
+  Node *head;
+
+    LinkedList ()
   {
-    std::cout << iter->val << " "; 
+    head = NULL;
+  }
+
+  void push (int data)
+  {
+    Node *newnode = new Node (data);
+    newnode->next = head;
+    head = newnode;
+  }
+
+  void print ()
+  {
+    Node *iter = head;
+    while (iter) {
+      std::cout << iter->val << std::endl;
+      iter = iter->next;
+    }
+  }
+};
+
+void
+print (Node * a)
+{
+  Node *iter = a;
+  while (iter) {
+    std::cout << iter->val << " ";
     iter = iter->next;
   }
   std::cout << std::endl;
 }
 
-int main ()
+int
+main ()
 {
-  Node * newnode = new Node();
+  Node *newnode = new Node ();
 
-  LinkedList a,b;
-  a.push(1);
-  a.push(2);
-  a.push(2);
-  a.print();
+  LinkedList a, b;
+  a.push (1);
+  a.push (2);
+  a.push (2);
+  a.print ();
 
   LinkedList c;
-  add(a.head, b.head);
+  add (a.head, b.head);
 
   return 0;
 }
-
-
-
-
