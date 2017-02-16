@@ -6,7 +6,7 @@ struct Node
   int val;
   Node *next;
 
-    Node (int x):val (x), next (NULL)
+  Node (int x):val (x), next (NULL)
   {
   }
 
@@ -19,7 +19,7 @@ struct LinkedList
 {
   Node *head;
 
-    LinkedList ()
+  LinkedList ()
   {
     head = NULL;
   }

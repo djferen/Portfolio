@@ -7,7 +7,7 @@ struct Node
   Node *prev;
   int data;
 
-    Node ()
+  Node ()
   {
     next = 0;
     prev = 0;
@@ -20,7 +20,7 @@ struct FIFO
   Node *h;
   Node *t;
 
-    FIFO ()
+  FIFO ()
   {
     h = 0;
     t = 0;
