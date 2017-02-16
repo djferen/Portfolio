@@ -3,41 +3,66 @@
 
 struct Node {
   Node * next;
+  Node * prev;
   int data;
   Node()
   {
     next = 0;
+    prev = 0;
     data = 0;
   }
 };
 
 struct FIFO {
-  Node * fi;
-  Node * fo; 
+  Node * h;
+  Node * t; 
   FIFO()
   {
-     fi = 0;
-     fo = 0;
+     h = 0;
+     t = 0;
+  }
+
+  void append(int data)
+  {
+    Node * newnode = new Node();
+    newnode->data = data;
+    newnode->prev = t;
+    if(t)
+    {
+       t->next = newnode; 
+    }
+    t = newnode;
+  }
+
+  void enqueue(int * list, int length)
+  {
+    for(int i = 0; i < length; i++)
+    {
+      enqueue(list[i]);
+    } 
   }
 
   void enqueue(int data)
   {
      Node * newnode = new Node();
      newnode->data = data;
-     if(fi)
-       fi->next = newnode;
-     fi = newnode;
-     if(!fo)
-       fo = newnode;
+     newnode->next = h;
+     if (h)
+       h->prev = newnode; 
+     h = newnode;
+     if(!t)
+       t = newnode;
   }
 
   bool dequeue(int * data)
   {
-     if (fo != 0)
+     if (t != 0)
      {
-       *data = fo->data; 
-       Node * temp = fo;
-       fo = fo->next;
+       *data = t->data; 
+       Node * temp = t;
+       t = t->prev;
+       if (t)
+         t->next = 0;
        delete temp; 
        return true;
      }
@@ -46,7 +71,7 @@ struct FIFO {
 
   bool find(int target)
   {
-     Node * node = fo;
+     Node * node = h;
      while(node != 0)
      {
        if(node->data == target)
@@ -66,6 +91,11 @@ int main()
   myfifo.enqueue(30);
   myfifo.enqueue(40);
   myfifo.enqueue(50);
+  myfifo.append(0);
+  myfifo.append(5);
+
+  int mylist [3] = {100, 200, 300};
+  myfifo.enqueue(mylist, 3);
 
   if (myfifo.find(30))
      std::cout << "Found 30" << std::endl;
