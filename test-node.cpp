@@ -2,13 +2,13 @@
 #include "node.h"
 
 int
-main()
+main ()
 {
-   typedef node<int> int_node;
+  typedef node < int >int_node;
 
-   typedef int_node::link int_node_link;
- 
-   int_node::link link = new int_node(0, NULL);
+  typedef int_node::link int_node_link;
 
-   return 0;
+  int_node::link link = new int_node (0, NULL);
+
+  return 0;
 }

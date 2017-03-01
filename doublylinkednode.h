@@ -3,16 +3,15 @@
 
 #include <cstddef>
 
-template <class item> 
-struct doublylinkednode
+template < class item > struct doublylinkednode
 {
-  typedef doublylinkednode * link;
+  typedef doublylinkednode *link;
 
   link next;
   link prev;
   item data;
 
-  doublylinkednode (item data, link next, link prev)
+    doublylinkednode (item data, link next, link prev)
   {
     this->data = data;
     this->next = next;
@@ -26,8 +25,7 @@ struct doublylinkednode
     prev = NULL;
   }
 
-  doublylinkednode ()
-  {
+  doublylinkednode () {
     next = NULL;
     prev = NULL;
   }

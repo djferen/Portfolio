@@ -3,15 +3,14 @@
 
 #include <cstddef>
 
-template <class item> 
-struct node
+template < class item > struct node
 {
-  typedef node * link;
+  typedef node *link;
 
   link next;
   item data;
 
-  node (item data, link next)
+    node (item data, link next)
   {
     this->data = data;
     this->next = next;
@@ -23,8 +22,7 @@ struct node
     next = NULL;
   }
 
-  node ()
-  {
+  node () {
     next = NULL;
   }
 };

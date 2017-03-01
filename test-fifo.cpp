@@ -5,7 +5,7 @@
 int
 main ()
 {
-  typedef fifo<int> int_fifo;
+  typedef fifo < int >int_fifo;
 
   int_fifo myIntFIFO;
 

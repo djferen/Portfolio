@@ -4,21 +4,20 @@
 #include <cstddef>
 #include "doublylinkednode.h"
 
-template <class item>
-struct fifo
+template < class item > struct fifo
 {
-  typedef typename doublylinkednode<item>::link doublylinkednode_link;
+  typedef typename doublylinkednode < item >::link doublylinkednode_link;
 
   doublylinkednode_link h;
   doublylinkednode_link t;
 
-  fifo ()
+    fifo ()
   {
     h = NULL;
     t = NULL;
   }
 
-  void enqueue (item *list, int length)
+  void enqueue (item * list, int length)
   {
     for (int i = 0; i < length; i++) {
       enqueue (list[i]);
@@ -27,22 +26,20 @@ struct fifo
 
   void enqueue (item data)
   {
-    doublylinkednode_link newnode = new doublylinkednode<item>(data, h, NULL);
-    if (h)
-    {
+    doublylinkednode_link newnode =
+      new doublylinkednode < item > (data, h, NULL);
+    if (h) {
       h->prev = newnode;
     }
     h = newnode;
-    if (t == NULL)
-    {
+    if (t == NULL) {
       t = newnode;
     }
   }
 
-  bool dequeue (item *data)
+  bool dequeue (item * data)
   {
-    if (t != NULL)
-    {
+    if (t != NULL) {
       *data = t->data;
       doublylinkednode_link temp = t;
       t = t->prev;
@@ -54,7 +51,8 @@ struct fifo
 
   void append (item data)
   {
-    doublylinkednode_link newnode = new doublylinkednode<item> (data, NULL, t);
+    doublylinkednode_link newnode =
+      new doublylinkednode < item > (data, NULL, t);
     if (t) {
       t->next = newnode;
     }
@@ -64,10 +62,9 @@ struct fifo
   bool find (item target)
   {
     doublylinkednode_link node = h;
-    while (node != NULL)
-    {
+    while (node != NULL) {
       if (node->data == target)
-	     return true;
+	return true;
       node = node->next;
     }
     return false;
@@ -76,4 +73,3 @@ struct fifo
 };
 
 #endif
-

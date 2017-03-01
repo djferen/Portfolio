@@ -4,21 +4,20 @@
 #include <cstddef>
 #include "node.h"
 
-template <class item>
-struct stack
+template < class item > struct stack
 {
-  typedef typename node<item>::link node_link;
+  typedef typename node < item >::link node_link;
 
   node_link top;
 
-  stack ()
+    stack ()
   {
     top = NULL;
   }
 
   void push (item data)
   {
-    node_link link = new node<item>(data, top);
+    node_link link = new node < item > (data, top);
     top = link;
   }
 

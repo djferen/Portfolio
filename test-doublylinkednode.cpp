@@ -2,12 +2,11 @@
 #include "doublylinkednode.h"
 
 int
-main()
+main ()
 {
-   typedef doublylinkednode<int>       int_doublylinkednode;
- 
-   int_doublylinkednode::link link = new int_doublylinkednode(0, NULL, NULL);
+  typedef doublylinkednode < int >int_doublylinkednode;
 
-   return 0;
+  int_doublylinkednode::link link = new int_doublylinkednode (0, NULL, NULL);
+
+  return 0;
 }
-
