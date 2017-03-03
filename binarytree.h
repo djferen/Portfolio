@@ -2,6 +2,7 @@
 #define _BINARYTREE_H_
 
 #include <cstddef>
+#include <iostream>
 #include "binarytreenode.h"
 
 template < class item > struct binarytree
@@ -15,12 +16,16 @@ template < class item > struct binarytree
     root = NULL;
   }
 
-  void search (item target, bool & result);
   void push (const item & data);
+  void print();
+  bool search (item target);
+  binarytree_link  searchlink (const item & target);
 
 private:
-  void search (binarytree_link h, item target, bool & result);
+  binarytree_link  searchlink (binarytree_link h, const item & target);
+  bool search (binarytree_link h, item target);
   void push (binarytree_link h, const item & data);
+  void print(binarytree_link h);
 };
 
 template < class item > void binarytree < item >::push (const item & data)
@@ -55,25 +60,62 @@ template < class item >
 }
 
 template < class item >
-  void binarytree < item >::search (item target, bool & result)
+  bool binarytree < item >::search (item target)
 {
-  search (root, target, result);
+  return search (root, target);
 }
 
 template < class item >
-  void binarytree < item >::search (binarytree_link h, item target,
-				    bool & result)
+typename binarytree<item>::binarytree_link binarytree < item >::searchlink (const item & target)
 {
-  if (h == NULL) {
-    result = false;
-    return;
+		return searchlink(root, target);
+}
+
+template < class item >
+typename binarytree<item>::binarytree_link binarytree < item >::searchlink (binarytree_link h, const item & target)
+{
+  if (h != NULL) {
+    if(target == h->data)
+    	return h;
+    if(target < h->data)
+    	return searchlink(h->left, target);
+    else
+    	return searchlink(h->right, target);
   }
-  if (h->data == target) {
-    result = true;
-    return;
+  else
+	  return NULL;
+}
+
+template < class item >
+  bool binarytree < item >::search (binarytree_link h, item target)
+{
+  if (h != NULL) {
+    if(target == h->data)
+    	return true;
+    if(target < h->data)
+    	return search(h->left, target);
+    else
+    	return search (h->right, target);
   }
-  search (h->left, target, result);
-  search (h->right, target, result);
+  else
+	  return false;
+}
+
+template < class item >
+void binarytree < item >::print()
+{
+	print(root);
+}
+
+template < class item >
+void binarytree < item >::print(binarytree_link h)
+{
+	if(h != NULL)
+	{
+	  print(h->left);
+	  std::cout << h->data << std::endl;
+	  print(h->right);
+	}
 }
 
 #endif
