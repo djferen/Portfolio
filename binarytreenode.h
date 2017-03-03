@@ -1,3 +1,6 @@
+/*
+ * This abstract binary tree node data type is to be used in binary tree operations.
+ */
 #ifndef _BINARYTREENODE_H_
 #define _BINARYTREENODE_H_
 

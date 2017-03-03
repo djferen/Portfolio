@@ -1,3 +1,6 @@
+/*
+ * This abstract data typed double linked node is indented for double linked listed operations.
+ */
 #ifndef _DOUBLYLINKEDNODE_H
 #define _DOUBLYLINKEDNODE_H
 

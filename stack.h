@@ -1,3 +1,6 @@
+/*
+ * This abstract data type stack class provides stack operations with a LIFO queue ordering.
+ */
 #ifndef _STACK_H
 #define _STACK_H
 
@@ -10,7 +13,7 @@ template < class item > struct stack
 
   node_link top;
 
-    stack ()
+  stack ()
   {
     top = NULL;
   }

@@ -1,3 +1,6 @@
+/*
+ * This abstract binary tree data type allows for tree and BST operations.
+ */
 #ifndef _BINARYTREE_H_
 #define _BINARYTREE_H_
 

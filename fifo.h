@@ -1,3 +1,6 @@
+/*
+ * This abstract data type fifo provides a FIFO queue data structure.
+ */
 #ifndef _FIFO_H
 #define _FIFO_H
 
@@ -11,7 +14,7 @@ template < class item > struct fifo
   doublylinkednode_link h;
   doublylinkednode_link t;
 
-    fifo ()
+  fifo ()
   {
     h = NULL;
     t = NULL;
