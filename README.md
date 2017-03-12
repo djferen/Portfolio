@@ -1,9 +1,9 @@
-# training_exercises
+# Portfolio
 
-These training execercies are meant to:
+These items are meant to:
 
-1. Keep my skills sharp
-2. Demonstrated some of my C++ skills
+1. Demonstrated some of my C++ skills
+2. Keep my skills sharp
 3. Help me get a job.
 
 They currently cover the following areas:
