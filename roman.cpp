@@ -15,13 +15,15 @@
  500 = D
  1000 = M
 
+Output Examples:
+
 I = 1
 VI = 6
 XVI = 16
 LXVI = 66
-CLXVI = 166
-DCLXVI = 666
-MDCLXVI = 1666
+CLXVII = 166
+DCLXVIII = 668
+MDCLXVIII = 1668
 
 */
 
