@@ -1,41 +1,109 @@
 /*
- * Let the node at which we are starting be called the initial node. Let the distance of node Y be the distance from the initial node to Y. 
+ * This contains an implementation of the Dijkstra's Shortest Path Routing Algorithm.
+ */
+#ifndef _DIJKSTRA_H
+#define _DIJKSTRA_H
 
-    1. Assign to every node a tentative distance value: set it to zero for our initial node and to infinity for all other nodes.
+#include <set>
+#include <map>
+#include <string>
+#include <limits>
 
-     (Initialization: One data value for tentative distance; settable in mass)
+/*
+ * The dnode ("dijkstra's node") is the basic element for this algorithm.
+ */
+struct dijkstra_node_type
+{
+  int tentative_distance;
+  std::set<std::string> neighbors;
+
+  dijkstra_node_type()
+  {
+	  tentative_distance = std::numeric_limits<int>::max();
+  }
+};
+
+typedef   std::map<std::string, std::map<std::string, int>> city_list_type;
+
+/*
+MIA
+NYC 1500
+WDC 700
+
+NYC
+MIA 1500
+WDC 800
+
+WDC
+NYC 800
+MIA 700
+*/
+
+typedef std::set<std::string> visited_set_type;
+typedef std::map<std::string, dijkstra_node_type> unvisited_set_type;
+
+struct dijkstra
+{
+	visited_set_type visited_set;
+	unvisited_set_type unvisited_set;
+
+	dijkstra()
+	{
+
+	}
+};
+
+/*
+The following contains a description of Dijkstra's Algorithm (Wikipedia) as well as operations that have been
+identified thru the analysis of the algorithm.
+
+    1. Initial Values
+
+     Operation:
+     1. SetAllNodesTD(int) default should be infinity
+     2. SetNodesTD(string, int)
 
     2. Set the initial node as current. Mark all other nodes unvisited. Create a set of all the unvisited nodes called the unvisited set.
 
-     (Initialization: Set the current node as visited and Save all nodes in unvisited set)
+     Operatoin:
+      0. SetNodeVisited(string)
+      1. SetNodeCurrent(string)
+      2. SetAllNodesUnvisited
 
     3. For the current node, consider all of its unvisited neighbors and calculate their tentative distances. Compare the newly calculated tentative 
     distance to the current assigned value and assign the smaller one. For example, if the current node A is marked with a distance of 6, and the 
     edge connecting it with a neighbor B has length 2, then the distance to B (through A) will be 6 + 2 = 8. If B was previously marked with 
     a distance greater than 8 then change it to 8. Otherwise, keep the current value.
 
-    (Data:  for a given node calculated all of its unviisted neightbors and calculate their tentative distances.  
-             Compare the newly calcualted td to the current assigned value and assign the node the smaller one.
-             a data structure for each node and all of its unvisited neighbors)
+    Operation:
+      1. string GetNeightborsOfNode(string)
+      2. int CalculateNeighborsTD
+      3. Compare the newly calculated TD to the current assigned TD and assign the smaller one
 
-    4. When we are done considering all of the neighbors of the current node, mark the current node as visited and remove it from the unvisited set. A visited node will never be checked again.
+    4. When we are done considering all of the neighbors of the current node, mark the current node as visited and remove it from the unvisited set.
+    A visited node will never be checked again.
+
+    Operation:
+    1. SetNodeVisited(string)
+    2. RemoveNodeFromUnvisitedSet(string)
+    
+    if current node visited == destination node then stop
+    else select the unvisited node that is marked with the smallest TD and set it as the new current node
 
     5. If the destination node has been marked visited (when planning a route between two specific nodes) or if the smallest tentative distance among the nodes in the unvisited set is infinity
     (when planning a complete traversal; occurs when there is no connection between the initial node and remaining unvisited nodes), then stop. The algorithm has finished.
 
     6. Otherwise, select the unvisited node that is marked with the smallest tentative distance, set it as the new "current node", and go back to step 3.
 
-Attributions: Wikipedia
+    Operation:
+     1. GetUnvisitedNodeWithSmallestTD
+     2. SetNodeCurrent(string)
+     3. PrintVisitedSet
+
+Citations:
+Dijkstra's Algorithm (Wikipedia, "Dijkstra's Algorithm")
 
  * */
-#ifndef _DIJKSTRA_H
-#define _DIJKSTRA_H
-/*
-distance of node Y = distance from initial node to node Y
-
-Change default data for all nodes except initial node
-
-*/
 #endif
 
 
