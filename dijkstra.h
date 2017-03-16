@@ -9,23 +9,14 @@
 #include <string>
 #include <limits>
 
+
+/* The purpose of this data structure is to provide all input.
+ *
+ * This map contains keys of every city, and its values are maps of neighboring cities and the distances to them.
+*/
+typedef   std::map<std::string, std::map<std::string, int>> distances_map_type;
 /*
- * The dnode ("dijkstra's node") is the basic element for this algorithm.
- */
-struct dijkstra_node_type
-{
-  int tentative_distance;
-  std::set<std::string> neighbors;
-
-  dijkstra_node_type()
-  {
-	  tentative_distance = std::numeric_limits<int>::max();
-  }
-};
-
-typedef   std::map<std::string, std::map<std::string, int>> city_list_type;
-
-/*
+ * Input Data Model Example:
 MIA
 NYC 1500
 WDC 700
@@ -39,11 +30,37 @@ NYC 800
 MIA 700
 */
 
-typedef std::set<std::string> visited_set_type;
-typedef std::map<std::string, dijkstra_node_type> unvisited_set_type;
+/*
+ * This data structure is a fundamental structure for this algorithm.  The purpose of this data structure is it
+ * keeps track of unvisited node information while searching for the shortest path.
+ *
+ * As the algorithm "traverses" all of the distances, these tentative_distance (TD) are calculated.
+ */
+struct unvisited_node_type
+{
+  int tentative_distance;
+  std::set<std::string> unvisited_neighbors;
 
+  unvisited_node_type()
+  {
+	  tentative_distance = std::numeric_limits<int>::max();
+  }
+};
+/*
+ * This data structure provides the algorithm implementation.
+ */
 struct dijkstra
 {
+	/*
+	 * This is a list of citiies that have been visited.
+	 */
+	typedef std::set<std::string> visited_set_type;
+
+	/*
+	 * This is a map of unvisited cities and their TDs and unvisited neighbors.
+	 */
+	typedef std::map<std::string, unvisited_node_type> unvisited_set_type;
+
 	visited_set_type visited_set;
 	unvisited_set_type unvisited_set;
 
@@ -51,10 +68,17 @@ struct dijkstra
 	{
 
 	}
+
+	std::string GetShortestPathFrom(std::string from)
+	{
+		std::string result;
+		return result;
+	}
+
 };
 
 /*
-The following contains a description of Dijkstra's Algorithm (Wikipedia) as well as operations that have been
+The following contains a description of Dijkstra's Algorithm (Wikipedia) as well as necessary operations that have been
 identified thru the analysis of the algorithm.
 
     1. Initial Values
