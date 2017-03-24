@@ -14,7 +14,8 @@
  *
  * This map contains keys of every city, and its values are maps of neighboring cities and the distances to them.
 */
-typedef   std::map<std::string, std::map<std::string, int>> distances_map_type;
+// map<city name, map<neighboring cities, distance to>>
+typedef   std::map<std::string, std::map<std::string, int> > distances_map_type;
 /*
  * Input Data Model Example:
 MIA
@@ -63,6 +64,21 @@ struct dijkstra
 
 	visited_set_type visited_set;
 	unvisited_set_type unvisited_set;
+
+	void CreateUnvisitedSet(const distances_map_type & all_cities_map)
+	{
+
+	}
+
+	std::set<std::string> GetNodeUnvisitedNeighbors(std::string)
+	{
+		return std::set<std::string>();
+	}
+
+	void SetNodeTD(std::string, int to)
+	{
+
+	}
 
 	dijkstra()
 	{

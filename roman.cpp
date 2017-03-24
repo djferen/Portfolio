@@ -56,6 +56,11 @@ int main()
   for(int i = 0; i <= 4000; i++)
   {
      std::cout << "Value " << i << " has value " << ConvertIntRomanNumeral(i) << std::endl;
+     if(i % 100 == 0)
+     {
+    	 std::cout << std::endl;
+     }
+
   }
 
   return 0;
