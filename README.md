@@ -24,6 +24,7 @@ Introduction:
 Build Instructions:
 
   cmake .
+
   make
 
 Run tests with:
@@ -42,9 +43,14 @@ Further Info:
 There is library and test code for the following areas:
 
 node.h contains a linked list node template structure
+
 doublylinkednode.h contains a double linked node template structure
+
 stack.h contains a pointer based stack template structure that uses node.h
+
 fifo.h contains a pointer based fifo template structure that uses doublylinkednode.h
+
 binarytreenode.h contains a pointer based binary tree node tempate structure
+
 binarytree.h contains a pointer based binary tree tempate structure that uses binartreenode.h
 
