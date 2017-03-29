@@ -55,14 +55,15 @@ LongestWord (string sen)
 int
 main ()
 {
-  size_t tests = 7;
+  size_t tests = 8;
   string test[tests][2] = { {"", ""},
   {"        ", ""},
   {"A", "A"},
   {" A ", "A"},
   {"A AB", "AB"},
   {"AA AA A B", "AA"},
-  {"%!#!@ ###3###", "###3###"}
+  {"%!#!@ ###3###", "###3###"},
+  {" A  B   CC   A", "CC"}
   };
   string input;
   string actual;
