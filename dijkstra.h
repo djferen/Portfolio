@@ -70,12 +70,43 @@ struct dijkstra
 
 	}
 
-	std::set<std::string> GetNodeUnvisitedNeighbors(std::string)
+	std::set<std::string> GetUnvisitedNeighbors(std::string)
 	{
 		return std::set<std::string>();
 	}
 
+	int CalculateNeighbgorsTD()
+	{
+
+		return 0;
+	}
+
+	void SetNodeVisited(std::string)
+	{
+
+	}
+
+	void SetNodeCurrent(std::string)
+	{
+
+	}
+
+	void RemoveFromUnvisitedSet(std::string)
+	{
+
+	}
+
+	void GetUnvisitedNodeWithSmallestTD()
+	{
+
+	}
+
 	void SetNodeTD(std::string, int to)
+	{
+
+	}
+
+	void PrintVisitedSet()
 	{
 
 	}
