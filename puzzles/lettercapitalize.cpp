@@ -5,50 +5,46 @@
 
 using namespace std;
 
-vector < string > GetWords (string s, char delim)
-{
-	vector < string > words;
-	stringstream ss (s);
-	string word;
-	while (getline (ss, word, delim)) {
-		if(word.compare("") != 0)
-		{
-			if(word[0] >= 'a' && word[word.length()-1] <= 'z')
-				word[0] = word[0]-32;
-		}
-		words.push_back(word);
-	}
-	return words;
-}
-
 string LetterCapitalize(string str)
 {
-  vector<string> words = GetWords(str, ' ');
-  string result;
-
-  for(vector<string>::const_iterator iter = words.begin(); iter != words.end(); iter++)
-  {
-	  result += iter->c_str();
-
-	  if((iter+1) != words.end())
-		  result += " ";
-  }
-
-  return result;
+    string result;
+    int word_length = 0;
+    for(size_t i = 0; i < str.length(); i++)
+    {
+        if(str[i] == ' ')
+        {
+            result += str[i];
+            word_length = 0;
+        }
+        else
+        {
+            if(word_length == 0 && str[i] >= 'a' && str[i] <= 'z')
+            {
+                result += str[i] - 32;
+            }
+            else
+            {
+                result += str[i];
+            }
+            word_length++;
+        }
+    }
+    return result;
 }
 
 int
 main ()
 {
-  size_t tests = 7;
+  size_t tests = 8;
   string test[tests][2] = { {"", ""},
-  {"A", "A"},
-  {"A aB c ", "A AB C"},
-  {"abcd2123", "Abcd2123"},
-  {"###3###", "###3###"},
-  {"cc", "Cc"},
-  {"sjafs afsf asfas", "Sjafs Afsf Asfas"}
-  };
+		  {"A", "A"},
+		  {" a ", " A "},
+		  {"A aB c ", "A AB C "},
+		  {"ab cd2123", "AbCd2123"},
+		  {"###3# ##", "###3# ##"},
+		  {"cc", "Cc"},
+		  {"sjafs afsf asfas", "Sjafs Afsf Asfas"}};
+
   string input;
   string actual;
   string expected;
@@ -72,17 +68,3 @@ main ()
 
   return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
