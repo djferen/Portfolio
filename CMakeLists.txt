@@ -16,6 +16,7 @@ add_executable(test-dijkstra test/test-dijkstra.cpp)
 add_executable(test-roman puzzles/roman.cpp)
 add_executable(test-getlongestword puzzles/getlongestword.cpp)
 add_executable(test-lettercapitalize puzzles/lettercapitalize.cpp)
+add_executable(test-matchsymbols puzzles/matchsymbols.cpp)
 
 add_custom_target(TestNode test-node
                   DEPENDS test-node)
@@ -37,7 +38,8 @@ add_custom_target(TestGLW test-getlongestword
                   DEPENDS test-getlongestword)
 add_custom_target(TestLC test-lettercapitalize
                   DEPENDS test-lettercapitalize)
-
+add_custom_target(TestMS test-matchsymbols
+                  DEPENDS test-matchsymbols)
 
 add_custom_target(Test
-                  DEPENDS TestNode TestStack TestFIFO TestDLL TestBTN TestD TestR TestGLW TestLC)
+                  DEPENDS TestNode TestStack TestFIFO TestDLL TestBTN TestD TestR TestGLW TestLC TestMS)

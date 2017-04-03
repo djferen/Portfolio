@@ -57,11 +57,11 @@ main ()
       1 << " input: '" << input << "' expected: '" << expected <<
       "' actual: '" << actual << "'" << endl;
     if (actual != expected) {
-      cout << actual << " did not match " << expected << "; Test failed!" <<
+      cout << "Test failed!" <<
 	endl;
     }
     else {
-      cout << actual << " did match " << expected << ": Test passed!" << endl;
+      cout << "Test passed!" << endl;
     }
     cout << endl;
   }
