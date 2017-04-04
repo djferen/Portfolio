@@ -18,6 +18,7 @@ add_executable(test-getlongestword puzzles/getlongestword.cpp)
 add_executable(test-lettercapitalize puzzles/lettercapitalize.cpp)
 add_executable(test-matchsymbols puzzles/matchsymbols.cpp)
 add_executable(test-timeconvert puzzles/timeconvert.cpp)
+add_executable(test-alphabetsoup puzzles/alphabetsoup.cpp)
 
 add_custom_target(TestNode test-node
                   DEPENDS test-node)
@@ -43,6 +44,8 @@ add_custom_target(TestMS test-matchsymbols
                   DEPENDS test-matchsymbols)
 add_custom_target(TestTC test-timeconvert
                   DEPENDS test-timeconvert)
-
+add_custom_target(TestAS test-alphabetsoup
+                  DEPENDS test-alphabetsoup)
+                                    
 add_custom_target(Test
-                  DEPENDS TestNode TestStack TestFIFO TestDLL TestBTN TestD TestR TestGLW TestLC TestMS TestTC)
+                  DEPENDS TestNode TestStack TestFIFO TestDLL TestBTN TestD TestR TestGLW TestLC TestMS TestTC TestAS)
