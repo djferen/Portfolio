@@ -23,30 +23,6 @@
 
 using namespace std;
 
-bool is_balanced(string expression)
-{
-  stack<char> s;
-
-  for(auto c : expression)
-  {
-     if(c == '[')
-         s.push(']');
-     else if(c == '{')
-    	 s.push('}');
-     else if(c == '[')
-	  	 s.push(']');
-     else
-     {
-    	 if(s.top() == c)
-    		 s.pop();
-    	 // pop until you close the eqivalent of c
-         //pop when find closing
-     }
-  }
-
-  return s.empty();
-}
-
 map<string,int> getWordFreq(vector<string> words)
 {
 	map<string,int> freqs;
