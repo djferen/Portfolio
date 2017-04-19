@@ -5,6 +5,7 @@ include_directories(include)
 file(MAKE_DIRECTORY build)
 set(CMAKE_BUILD_TYPE Debug)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/build)
+set (CMAKE_CXX_STANDARD 11)
 
 add_executable(test-node test/test-node.cpp)
 add_executable(test-stack test/test-stack.cpp)
@@ -19,6 +20,8 @@ add_executable(test-lettercapitalize puzzles/lettercapitalize.cpp)
 add_executable(test-matchsymbols puzzles/matchsymbols.cpp)
 add_executable(test-timeconvert puzzles/timeconvert.cpp)
 add_executable(test-alphabetsoup puzzles/alphabetsoup.cpp)
+add_executable(test-hash puzzles/hash.cpp)
+add_executable(test-balancebraces puzzles/balance-braces.cpp)
 
 add_custom_target(TestNode test-node
                   DEPENDS test-node)
@@ -46,6 +49,10 @@ add_custom_target(TestTC test-timeconvert
                   DEPENDS test-timeconvert)
 add_custom_target(TestAS test-alphabetsoup
                   DEPENDS test-alphabetsoup)
+add_custom_target(TestH test-hash
+                  DEPENDS test-hash)
+add_custom_target(TestBB test-balancebraces
+                  DEPENDS test-balancebraces)
                                     
 add_custom_target(Test
-                  DEPENDS TestNode TestStack TestFIFO TestDLL TestBTN TestD TestR TestGLW TestLC TestMS TestTC TestAS)
+                  DEPENDS TestNode TestStack TestFIFO TestDLL TestBTN TestD TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB)
