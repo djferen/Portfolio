@@ -10,6 +10,7 @@ set (CMAKE_CXX_STANDARD 11)
 add_executable(test-node test/test-node.cpp)
 add_executable(test-stack test/test-stack.cpp)
 add_executable(test-fifo test/test-fifo.cpp)
+add_executable(test-sfifo test/test-sfifo.cpp)
 add_executable(test-doublylinkednode test/test-doublylinkednode.cpp)
 add_executable(test-binarytreenode test/test-binarytreenode.cpp)
 add_executable(test-binarytree test/test-binarytree.cpp)
@@ -22,6 +23,7 @@ add_executable(test-timeconvert puzzles/timeconvert.cpp)
 add_executable(test-alphabetsoup puzzles/alphabetsoup.cpp)
 add_executable(test-hash puzzles/hash.cpp)
 add_executable(test-balancebraces puzzles/balance-braces.cpp)
+add_executable(test-queue puzzles/queue.cpp)
 
 add_custom_target(TestNode test-node
                   DEPENDS test-node)
@@ -29,6 +31,8 @@ add_custom_target(TestStack test-stack
                   DEPENDS test-stack)
 add_custom_target(TestFIFO test-fifo
                   DEPENDS test-fifo)
+add_custom_target(TestSFIFO test-sfifo
+                  DEPENDS test-sfifo)
 add_custom_target(TestDLL test-doublylinkednode
                   DEPENDS test-doublylinkednode)
 add_custom_target(TestBTN test-binarytreenode
@@ -53,6 +57,8 @@ add_custom_target(TestH test-hash
                   DEPENDS test-hash)
 add_custom_target(TestBB test-balancebraces
                   DEPENDS test-balancebraces)
+add_custom_target(TestQ test-queue
+                  DEPENDS test-queue)
                                     
 add_custom_target(Test
-                  DEPENDS TestNode TestStack TestFIFO TestDLL TestBTN TestD TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB)
+                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ)

@@ -42,21 +42,21 @@ map<string,int> getWordFreq(vector<string> words)
     return freqs;
 }
 
-bool ransom_note(vector<string> magazine, vector<string> ransom) {
-	map<string,int> magazineWordFreqs = getWordFreq(magazine);
-	map<string,int> ransomWordFreqs = getWordFreq(ransom);
+bool isNoteInDictionary(vector<string> dictionary, vector<string> ransom) {
+	map<string,int> dictionaryWordFreqs = getWordFreq(dictionary);
+	map<string,int> noteWordFreqs = getWordFreq(ransom);
     size_t found_all = 0;
 
     for(auto ransom_word : ransom)
     {
-        auto search = magazineWordFreqs.find(ransom_word);
-        if(search != magazineWordFreqs.end())
+        auto search = dictionaryWordFreqs.find(ransom_word);
+        if(search != dictionaryWordFreqs.end())
         {
             search->second--;
         }
     }
 
-    for(auto word : magazineWordFreqs)
+    for(auto word : dictionaryWordFreqs)
     {
     	if(word.second < 0)
     		return false;
@@ -65,16 +65,21 @@ bool ransom_note(vector<string> magazine, vector<string> ransom) {
     return true;
 }
 
-int main(){
+int main()
+{
+    vector<string> dictionary = {"apgo", "clm", "w", "lxkvg", "mwz", "elo", "bg", "elo", "lxkvg", "elo", "apgo", "apgo", "w", "elo", "bg"};
+    vector<string> note       = {"elo", "lxkvg", "bg", "mwz", "clm", "w"};
 
-    vector<string> magazine = {"apgo", "clm", "w", "lxkvg", "mwz", "elo", "bg", "elo", "lxkvg", "elo", "apgo", "apgo", "w", "elo", "bg"};
-    vector<string> ransom = {"elo", "lxkvg", "bg", "mwz", "clm", "w"};
-
-    if(ransom_note(magazine, ransom))
+    if(isNoteInDictionary(dictionary, note))
         cout << "Yes\n";
     else
         cout << "No\n";
+
+    queue<int> myq;
+    cout << "Front: " << myq.front() << endl;
+    myq.push(1);
+    myq.pop();
+    cout << "Front: " << myq.front() << endl;
+
     return 0;
 }
-
-

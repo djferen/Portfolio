@@ -38,9 +38,7 @@ bool is_balanced(string expression)
      else
      {
     	 if(s.top() == c)
-    		 s.pop();
-    	 // pop until you close the eqivalent of c
-         //pop when find closing
+             s.pop();
      }
   }
 
