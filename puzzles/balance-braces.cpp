@@ -26,6 +26,7 @@ using namespace std;
 bool is_balanced(string expression)
 {
   stack<char> s;
+  bool pushed = false;
 
   for(auto c : expression)
   {
@@ -33,27 +34,46 @@ bool is_balanced(string expression)
          s.push(']');
      else if(c == '{')
     	 s.push('}');
-     else if(c == '[')
-	  	 s.push(']');
+     else if(c == '(')
+	  	 s.push(')');
      else
      {
-    	 if(s.top() == c)
+    	 if(!s.empty() && s.top() == c)
              s.pop();
+     }
+     if(!s.empty())
+     {
+    	 pushed = true;
      }
   }
 
-  return s.empty();
+  return s.empty() && (pushed && expression.length() > 0);
 }
 
-int main(){
+int main()
+{
+	ifstream inf("./test/bb-test", ifstream::in);
+	ifstream einf("./test/bb-exp", ifstream::in);
 
-    vector<string> inputs = {"{[()]}", "{[(])}", "{{[[(())]]}}"};
-    vector<string> expected_outputs = {"Yes", "No", "Yes"};
+    int n;
+    inf >> n;
 
-    for(auto input : inputs)
+	string input,expected;
+
+    for(int i = 0; i < n; i++)
     {
-    	cout << (is_balanced(input) ? "Yes" : "No") << endl;
+    	inf >> input;
+    	einf >> expected;
+    	string actual = (is_balanced(input) ? "YES" : "NO");
+
+    	if(actual != expected)
+    	{
+    		cout << "Actual != expected for " << n << endl << input << endl;
+    	}
     }
+
+    inf.close();
+    einf.close();
 
     return 0;
 }
