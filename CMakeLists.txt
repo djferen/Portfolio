@@ -26,6 +26,7 @@ add_executable(test-hash puzzles/hash.cpp)
 add_executable(test-balancebraces puzzles/balance-braces.cpp)
 add_executable(test-queue puzzles/queue.cpp)
 add_executable(test-hascycle puzzles/hascycle.cpp)
+add_executable(test-fibonacci puzzles/fibonacci.cpp)
 
 add_custom_target(TestNode test-node
                   DEPENDS test-node)
@@ -65,6 +66,8 @@ add_custom_target(TestQ test-queue
                   DEPENDS test-queue)
 add_custom_target(TestHC test-hascycle
                   DEPENDS test-hascycle)
+add_custom_target(TestF test-fibonacci
+                  DEPENDS test-fibonacci)
                                     
 add_custom_target(Test
-                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC)
+                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC TestF)
