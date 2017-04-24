@@ -15,6 +15,7 @@ add_executable(test-doublylinkednode test/test-doublylinkednode.cpp)
 add_executable(test-binarytreenode test/test-binarytreenode.cpp)
 add_executable(test-binarytree test/test-binarytree.cpp)
 add_executable(test-dijkstra test/test-dijkstra.cpp)
+add_executable(test-minheap test/test-minheap.cpp)
 add_executable(test-roman puzzles/roman.cpp)
 add_executable(test-getlongestword puzzles/getlongestword.cpp)
 add_executable(test-lettercapitalize puzzles/lettercapitalize.cpp)
@@ -24,6 +25,7 @@ add_executable(test-alphabetsoup puzzles/alphabetsoup.cpp)
 add_executable(test-hash puzzles/hash.cpp)
 add_executable(test-balancebraces puzzles/balance-braces.cpp)
 add_executable(test-queue puzzles/queue.cpp)
+add_executable(test-hascycle puzzles/hascycle.cpp)
 
 add_custom_target(TestNode test-node
                   DEPENDS test-node)
@@ -41,6 +43,8 @@ add_custom_target(TestBT test-binarytree
                   DEPENDS test-binarytree)
 add_custom_target(TestD test-dijkstra
                   DEPENDS test-dijkstra)
+add_custom_target(TestMH test-minheap
+                  DEPENDS test-minheap)                  
 add_custom_target(TestR test-roman
                   DEPENDS test-roman)
 add_custom_target(TestGLW test-getlongestword
@@ -59,6 +63,8 @@ add_custom_target(TestBB test-balancebraces
                   DEPENDS test-balancebraces)
 add_custom_target(TestQ test-queue
                   DEPENDS test-queue)
+add_custom_target(TestHC test-hascycle
+                  DEPENDS test-hascycle)
                                     
 add_custom_target(Test
-                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ)
+                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC)
