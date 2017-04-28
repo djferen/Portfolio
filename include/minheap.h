@@ -104,28 +104,6 @@ public:
 
   item * getItems(){ return items; }
 
-  bool peek(item & value)
-  {
-	  if(size == 0)
-		  return false;
-
-	  value = items[0];
-	  return true;
-  }
-
-  bool poll(item & value)
-  {
-	  if(size == 0)
-		  return false;
-
-	  value = items[0];
-	  items[0] = items[size-1];
-	  size--;
-	  heapifyDown();
-
-	  return true;
-  }
-
   void add(item value)
   {
 	  ensureCapacity();
@@ -147,8 +125,7 @@ void priv_print(int index)
 
   void print()
   {
-	  if(this->size != 0)
-		  priv_print(0);
+     priv_print(0);
   }
 
 };
