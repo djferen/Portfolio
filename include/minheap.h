@@ -1,5 +1,7 @@
 /*
  * This abstract data type minheap provides a minheap data structure.
+ * This can be used in a priority queue where in this case the lowest "priority"
+ * value (node with the lowest valued item) is in the root.
  */
 #ifndef _MINHEAP_H
 #define _MINHEAP_H

@@ -9,7 +9,7 @@
 
 template < class item > struct node
 {
-  typedef node *link;
+  typedef node * link;
 
   link next;
   item data;

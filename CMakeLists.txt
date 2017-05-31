@@ -5,7 +5,9 @@ include_directories(include)
 file(MAKE_DIRECTORY build)
 set(CMAKE_BUILD_TYPE Debug)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/build)
-set (CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 11)
+set(THREADS_PREFER_PTHREAD_FLAG ON)
+find_package(Threads REQUIRED)
 
 add_executable(test-node test/test-node.cpp)
 add_executable(test-stack test/test-stack.cpp)
@@ -27,6 +29,10 @@ add_executable(test-balancebraces puzzles/balancebraces.cpp)
 add_executable(test-queue puzzles/queue.cpp)
 add_executable(test-hascycle puzzles/hascycle.cpp)
 add_executable(test-fibonacci puzzles/fibonacci.cpp)
+add_executable(test-atomics puzzles/atomics.cpp)
+target_link_libraries(test-atomics Threads::Threads)
+add_executable(test-linkedlist test/test-linkedlist.cpp)
+
 
 add_custom_target(TestNode test-node
                   DEPENDS test-node)
@@ -68,6 +74,10 @@ add_custom_target(TestHC test-hascycle
                   DEPENDS test-hascycle)
 add_custom_target(TestF test-fibonacci
                   DEPENDS test-fibonacci)
+add_custom_target(TestA test-atomics
+                  DEPENDS test-atomics)
+add_custom_target(TestLL test-linkedlist
+                  DEPENDS test-node test-linkedlist)
                                     
 add_custom_target(Test
-                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC TestF)
+                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC TestF TestLL)

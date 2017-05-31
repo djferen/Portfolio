@@ -67,7 +67,7 @@ template < class item > struct fifo
     doublylinkednode_link node = h;
     while (node != NULL) {
       if (node->data == target)
-	return true;
+        return true;
       node = node->next;
     }
     return false;
