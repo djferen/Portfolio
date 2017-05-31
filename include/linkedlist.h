@@ -11,7 +11,7 @@
 #include "node.h"
 
 template < typename item_type >
-class linkedlist
+struct linkedlist
 {
   friend std::ostream & operator<< (std::ostream & output, const linkedlist<item_type> & ll)
   {

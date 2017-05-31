@@ -8,45 +8,46 @@
 #include <iostream>
 #include "binarytreenode.h"
 
-template < class item > struct binarytree
+template < typename item_type >
+struct binarytree
 {
-  typedef typename binarytreenode < item >::tree_link binarytree_link;
+  typedef typename binarytreenode < item_type >::tree_link binarytree_link;
 
   binarytree_link root;
 
-    binarytree ()
+  binarytree ()
   {
     root = NULL;
   }
 
-  void push (const item & data);
+  void push (const item_type & data);
   void print();
-  bool search (item target);
-  binarytree_link  searchlink (const item & target);
+  bool search (item_type target);
+  binarytree_link  searchlink (const item_type & target);
 
 private:
-  binarytree_link  searchlink (binarytree_link h, const item & target);
-  bool search (binarytree_link h, item target);
-  void push (binarytree_link h, const item & data);
+  binarytree_link  searchlink (binarytree_link h, const item_type & target);
+  bool search (binarytree_link h, item_type target);
+  void push (binarytree_link h, const item_type & data);
   void print(binarytree_link h);
 };
 
-template < class item > void binarytree < item >::push (const item & data)
+template < typename item_type > void binarytree < item_type >::push (const item_type & data)
 {
   if (root == NULL) {
-    root = new binarytreenode < item > (data, NULL, NULL, NULL);
+    root = new binarytreenode < item_type > (data, NULL, NULL, NULL);
     return;
   }
 
   push (root, data);
 }
 
-template < class item >
-  void binarytree < item >::push (binarytree_link h, const item & data)
+template < typename item_type >
+  void binarytree < item_type >::push (binarytree_link h, const item_type & data)
 {
   if (data < h->data) {
     if (h->left == NULL) {
-      h->left = new binarytreenode < item > (data, h, NULL, NULL);
+      h->left = new binarytreenode < item_type > (data, h, NULL, NULL);
     }
     else {
       push (h->left, data);
@@ -54,7 +55,7 @@ template < class item >
   }
   else if (data > h->data) {
     if (h->right == NULL) {
-      h->right = new binarytreenode < item > (data, h, NULL, NULL);
+      h->right = new binarytreenode < item_type > (data, h, NULL, NULL);
     }
     else {
       push (h->right, data);
@@ -62,20 +63,20 @@ template < class item >
   }
 }
 
-template < class item >
-  bool binarytree < item >::search (item target)
+template < typename item_type >
+  bool binarytree < item_type >::search (item_type target)
 {
   return search (root, target);
 }
 
-template < class item >
-typename binarytree<item>::binarytree_link binarytree < item >::searchlink (const item & target)
+template < typename item_type >
+typename binarytree<item_type>::binarytree_link binarytree < item_type >::searchlink (const item_type & target)
 {
 		return searchlink(root, target);
 }
 
-template < class item >
-typename binarytree<item>::binarytree_link binarytree < item >::searchlink (binarytree_link h, const item & target)
+template < typename item_type >
+typename binarytree<item_type>::binarytree_link binarytree < item_type >::searchlink (binarytree_link h, const item_type & target)
 {
   if (h != NULL) {
     if(target == h->data)
@@ -89,8 +90,8 @@ typename binarytree<item>::binarytree_link binarytree < item >::searchlink (bina
 	  return NULL;
 }
 
-template < class item >
-  bool binarytree < item >::search (binarytree_link h, item target)
+template < typename item_type >
+  bool binarytree < item_type >::search (binarytree_link h, item_type target)
 {
   if (h != NULL) {
     if(target == h->data)
@@ -104,14 +105,14 @@ template < class item >
 	  return false;
 }
 
-template < class item >
-void binarytree < item >::print()
+template < typename item_type >
+void binarytree < item_type >::print()
 {
 	print(root);
 }
 
-template < class item >
-void binarytree < item >::print(binarytree_link h)
+template < typename item_type >
+void binarytree < item_type >::print(binarytree_link h)
 {
 	if(h != NULL)
 	{

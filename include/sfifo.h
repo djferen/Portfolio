@@ -6,10 +6,11 @@
 
 #include <stack>
 
-template < class item > struct sfifo
+template < typename item_type >
+struct sfifo
 {
 public:
-  typedef std::stack< item > stack_type;
+  typedef std::stack< item_type > stack_type;
 
   stack_type input_stack, output_stack;
 
@@ -18,7 +19,7 @@ public:
 
   }
 
-  void push(item x)
+  void push(item_type x)
   {
 		input_stack.push(x);
   }
@@ -46,7 +47,7 @@ public:
 	}
   }
 
-  item front()
+  item_type front()
   {
 	  if(output_stack.empty())
 	  {
@@ -55,7 +56,7 @@ public:
 			  output_stack.push(input_stack.top());
 			  input_stack.pop();
 		  }
-		  return output_stack.empty() ? item() : output_stack.top();
+		  return output_stack.empty() ? item_type() : output_stack.top();
 	  }
 	  else
 	  {

@@ -6,32 +6,35 @@
 
 #include <cstddef>
 
-template < class item > struct doublylinkednode
+template < typename item_type >
+struct doublylinkednode
 {
-  typedef doublylinkednode *link;
+  typedef doublylinkednode * link;
 
   link next;
   link prev;
-  item data;
+  item_type data;
 
-    doublylinkednode (item data, link next, link prev)
+  doublylinkednode (item_type data, link next, link prev)
   {
     this->data = data;
     this->next = next;
     this->prev = prev;
   }
 
-  doublylinkednode (item data)
+  doublylinkednode (item_type data)
   {
     this->data = data;
     next = NULL;
     prev = NULL;
   }
 
-  doublylinkednode () {
+  doublylinkednode ()
+  {
     next = NULL;
     prev = NULL;
   }
+
 };
 
 #endif

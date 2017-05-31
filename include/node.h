@@ -7,26 +7,29 @@
 
 #include <cstddef>
 
-template < class item > struct node
+template < typename item_type >
+struct node
 {
+
   typedef node * link;
 
   link next;
-  item data;
+  item_type data;
 
-  node (item data, link next)
+  node (item_type data, link next)
   {
     this->data = data;
     this->next = next;
   }
 
-  node (item data)
+  node (item_type data)
   {
     this->data = data;
     next = NULL;
   }
 
-  node () {
+  node ()
+  {
     next = NULL;
   }
 };

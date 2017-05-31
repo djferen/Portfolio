@@ -1,7 +1,7 @@
 /*
  * This abstract data type minheap provides a minheap data structure.
  * This can be used in a priority queue where in this case the lowest "priority"
- * value (node with the lowest valued item) is in the root.
+ * value (node with the lowest valued item_type) is in the root.
  */
 #ifndef _MINHEAP_H
 #define _MINHEAP_H
@@ -10,13 +10,14 @@
 
 using namespace std;
 
-template < class item > struct minheap
+template < typename item_type >
+struct minheap
 {
 private:
 
 	int capacity;
 	int size = 0;
-    item * items;
+    item_type * items;
 
 	int getLeftChildIndex(int parentIndex) { return 2*parentIndex + 1; }
 	int getRightChildIndex(int parentIndex) { return 2*parentIndex + 2; }
@@ -26,19 +27,19 @@ private:
 	bool hasRightChild(int index) { return getRightChildIndex(index) < size; }
 	bool hasParent(int index) { return getParentIndex(index) >= 0; }
 
-	item leftChild(int index) { return items[getLeftChildIndex(index)]; }
-	item rightChild(int index) { return items[getRightChildIndex(index)]; }
-	item parent(int index) { return items[getParentIndex(index)]; }
+	item_type leftChild(int index) { return items[getLeftChildIndex(index)]; }
+	item_type rightChild(int index) { return items[getRightChildIndex(index)]; }
+	item_type parent(int index) { return items[getParentIndex(index)]; }
 
 	void traverse()
 	{
 
 	}
 
-	item * increaseCapAndCopy()
+	item_type * increaseCapAndCopy()
 	{
 		capacity *= 2;
-		item * new_items = new item[capacity];
+		item_type * new_items = new item_type[capacity];
 		for(int i = 0; i < size; i++)
 		{
 			new_items[i] = items[i];
@@ -48,7 +49,7 @@ private:
 
 	  void swap(int firstIndex, int secondIndex)
 	  {
-		  item temp = items[firstIndex];
+		  item_type temp = items[firstIndex];
 		  items[firstIndex] = items[secondIndex];
 		  items[secondIndex] = temp;
 	  }
@@ -99,14 +100,14 @@ public:
 
   minheap() : capacity(10)
   {
-	  items = new item[capacity];
+	  items = new item_type[capacity];
   }
 
   int getSize() {return size;}
 
-  item * getItems(){ return items; }
+  item_type * getItems(){ return items; }
 
-  void add(item value)
+  void add(item_type value)
   {
 	  ensureCapacity();
 	  items[size] = value;
@@ -114,8 +115,8 @@ public:
 	  heapifyUp();
   }
 
-void priv_print(int index)
-{
+  void priv_print(int index)
+  {
 	if(index == this->size)
 		return;
 	std::cout << index << " " << items[index] << std::endl;
@@ -123,7 +124,7 @@ void priv_print(int index)
 		priv_print(getLeftChildIndex(index));
 	if(hasRightChild(index))
 		priv_print(getRightChildIndex(index));
-}
+  }
 
   void print()
   {

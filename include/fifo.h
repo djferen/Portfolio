@@ -7,9 +7,10 @@
 #include <cstddef>
 #include "doublylinkednode.h"
 
-template < class item > struct fifo
+template < typename item_type >
+struct fifo
 {
-  typedef typename doublylinkednode < item >::link doublylinkednode_link;
+  typedef typename doublylinkednode < item_type >::link doublylinkednode_link;
 
   doublylinkednode_link h;
   doublylinkednode_link t;
@@ -20,17 +21,17 @@ template < class item > struct fifo
     t = NULL;
   }
 
-  void enqueue (item * list, int length)
+  void enqueue (item_type * list, int length)
   {
     for (int i = 0; i < length; i++) {
       enqueue (list[i]);
     }
   }
 
-  void enqueue (item data)
+  void enqueue (item_type data)
   {
     doublylinkednode_link newnode =
-      new doublylinkednode < item > (data, h, NULL);
+      new doublylinkednode < item_type > (data, h, NULL);
     if (h) {
       h->prev = newnode;
     }
@@ -40,7 +41,7 @@ template < class item > struct fifo
     }
   }
 
-  bool dequeue (item * data)
+  bool dequeue (item_type * data)
   {
     if (t != NULL) {
       *data = t->data;
@@ -52,17 +53,17 @@ template < class item > struct fifo
     return false;
   }
 
-  void append (item data)
+  void append (item_type data)
   {
     doublylinkednode_link newnode =
-      new doublylinkednode < item > (data, NULL, t);
+      new doublylinkednode < item_type > (data, NULL, t);
     if (t) {
       t->next = newnode;
     }
     t = newnode;
   }
 
-  bool find (item target)
+  bool find (item_type target)
   {
     doublylinkednode_link node = h;
     while (node != NULL) {

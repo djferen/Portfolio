@@ -7,9 +7,10 @@
 #include <cstddef>
 #include "node.h"
 
-template < class item > struct stack
+template < typename item_type >
+struct stack
 {
-  typedef typename node < item >::link node_link;
+  typedef typename node < item_type >::link node_link;
 
   node_link top;
 
@@ -18,13 +19,13 @@ template < class item > struct stack
     top = NULL;
   }
 
-  void push (item data)
+  void push (item_type data)
   {
-    node_link link = new node < item > (data, top);
+    node_link link = new node < item_type > (data, top);
     top = link;
   }
 
-  bool pop (item * data)
+  bool pop (item_type * data)
   {
     if (top != NULL) {
       *data = top->data;
@@ -36,7 +37,7 @@ template < class item > struct stack
     return false;
   }
 
-  bool find (item target)
+  bool find (item_type target)
   {
     node_link node = top;
     while (node != NULL) {

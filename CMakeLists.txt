@@ -33,7 +33,6 @@ add_executable(test-atomics puzzles/atomics.cpp)
 target_link_libraries(test-atomics Threads::Threads)
 add_executable(test-linkedlist test/test-linkedlist.cpp)
 
-
 add_custom_target(TestNode test-node
                   DEPENDS test-node)
 add_custom_target(TestStack test-stack
