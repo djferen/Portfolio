@@ -4,7 +4,6 @@
 #ifndef _FIFO_H
 #define _FIFO_H
 
-#include <cstddef>
 #include "doublylinkednode.h"
 
 template < typename item_type >
@@ -17,8 +16,8 @@ struct fifo
 
   fifo ()
   {
-    h = NULL;
-    t = NULL;
+    h = nullptr;
+    t = nullptr;
   }
 
   void enqueue (item_type * list, int length)
@@ -31,19 +30,19 @@ struct fifo
   void enqueue (item_type data)
   {
     doublylinkednode_link newnode =
-      new doublylinkednode < item_type > (data, h, NULL);
+      new doublylinkednode < item_type > (data, h, nullptr);
     if (h) {
       h->prev = newnode;
     }
     h = newnode;
-    if (t == NULL) {
+    if (t == nullptr) {
       t = newnode;
     }
   }
 
   bool dequeue (item_type * data)
   {
-    if (t != NULL) {
+    if (t != nullptr) {
       *data = t->data;
       doublylinkednode_link temp = t;
       t = t->prev;
@@ -56,7 +55,7 @@ struct fifo
   void append (item_type data)
   {
     doublylinkednode_link newnode =
-      new doublylinkednode < item_type > (data, NULL, t);
+      new doublylinkednode < item_type > (data, nullptr, t);
     if (t) {
       t->next = newnode;
     }
@@ -66,7 +65,7 @@ struct fifo
   bool find (item_type target)
   {
     doublylinkednode_link node = h;
-    while (node != NULL) {
+    while (node != nullptr) {
       if (node->data == target)
         return true;
       node = node->next;

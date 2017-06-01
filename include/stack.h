@@ -4,7 +4,6 @@
 #ifndef _STACK_H
 #define _STACK_H
 
-#include <cstddef>
 #include "node.h"
 
 template < typename item_type >
@@ -16,7 +15,7 @@ struct stack
 
   stack ()
   {
-    top = NULL;
+    top = nullptr;
   }
 
   void push (item_type data)
@@ -27,7 +26,8 @@ struct stack
 
   bool pop (item_type * data)
   {
-    if (top != NULL) {
+    if (top != nullptr)
+    {
       *data = top->data;
       node_link temp = top;
       top = top->next;
@@ -40,9 +40,10 @@ struct stack
   bool find (item_type target)
   {
     node_link node = top;
-    while (node != NULL) {
+    while (node != nullptr)
+    {
       if (node->data == target)
-	return true;
+        return true;
       node = node->next;
     }
     return false;

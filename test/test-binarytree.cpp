@@ -42,10 +42,10 @@ main ()
   myBinaryTree.print();
 
   binarytree < std::string >::binarytree_link link = myBinaryTree.searchlink("a");
-  std::cout << "Searched for a" << (link != NULL ? " found" : " not found") << std::endl;
+  std::cout << "Searched for a" << (link != nullptr ? " found" : " not found") << std::endl;
 
   link = myBinaryTree.searchlink("zz");
-  std::cout << "Searched for zz" << (link != NULL ? " found" : " not found") << std::endl;
+  std::cout << "Searched for zz" << (link != nullptr ? " found" : " not found") << std::endl;
 
   return 0;
 }

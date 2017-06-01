@@ -8,7 +8,7 @@ main ()
   typedef binarytreenode < int >::tree_link int_binarytree_link;
 
   int_binarytree_link myBinaryTree =
-    new int_binarytreenode (0, NULL, NULL, NULL);
+    new int_binarytreenode (0, nullptr, nullptr, nullptr);
 
   return 0;
 }

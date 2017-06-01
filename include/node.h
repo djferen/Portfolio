@@ -5,8 +5,6 @@
 #ifndef _NODE_H
 #define _NODE_H
 
-#include <cstddef>
-
 template < typename item_type >
 struct node
 {
@@ -25,12 +23,12 @@ struct node
   node (item_type data)
   {
     this->data = data;
-    next = NULL;
+    next = nullptr;
   }
 
   node ()
   {
-    next = NULL;
+    next = nullptr;
   }
 };
 

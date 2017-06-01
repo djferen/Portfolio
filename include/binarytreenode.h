@@ -4,8 +4,6 @@
 #ifndef _BINARYTREENODE_H_
 #define _BINARYTREENODE_H_
 
-#include <cstddef>
-
 template < typename item_type >
 struct binarytreenode
 {
@@ -27,16 +25,16 @@ struct binarytreenode
   binarytreenode (item_type data)
   {
     this->data = data;
-    parent = NULL;
-    left = NULL;
-    right = NULL;
+    parent = nullptr;
+    left = nullptr;
+    right = nullptr;
   }
 
   binarytreenode ()
   {
-    parent = NULL;
-    left = NULL;
-    right = NULL;
+    parent = nullptr;
+    left = nullptr;
+    right = nullptr;
   }
 };
 

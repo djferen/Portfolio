@@ -4,8 +4,6 @@
 #ifndef _DOUBLYLINKEDNODE_H
 #define _DOUBLYLINKEDNODE_H
 
-#include <cstddef>
-
 template < typename item_type >
 struct doublylinkednode
 {
@@ -25,14 +23,14 @@ struct doublylinkednode
   doublylinkednode (item_type data)
   {
     this->data = data;
-    next = NULL;
-    prev = NULL;
+    next = nullptr;
+    prev = nullptr;
   }
 
   doublylinkednode ()
   {
-    next = NULL;
-    prev = NULL;
+    next = nullptr;
+    prev = nullptr;
   }
 
 };

@@ -4,7 +4,6 @@
 #ifndef _LINKEDLIST_H
 #define _LINKEDLIST_H
 
-#include <cstddef>
 #include <iostream>
 #include <stack>
 
@@ -16,7 +15,7 @@ struct linkedlist
   friend std::ostream & operator<< (std::ostream & output, const linkedlist<item_type> & ll)
   {
     linktype iter = ll.head;
-    while(iter)
+    while(iter != nullptr)
     {
     	output << iter->data << ' ';
     	iter = iter->next;
@@ -30,16 +29,16 @@ public:
 
   linkedlist()
   {
-    head = NULL;
+    head = nullptr;
   }
 
-  linkedlist(const item_type * items, int size) : head(NULL)
+  linkedlist(const item_type * items, int size) : head(nullptr)
   {
      linktype temp, iter;
 
      for(size_t i = 0; i < size; ++i)
      {
-        if(!head)
+        if(head == nullptr)
         {
           head = new node<item_type> (items[i]);
           iter = head;
@@ -55,9 +54,9 @@ public:
 
   void reverseByPtr()
   {
-    linktype iter = head, save = NULL, newhead = NULL;
+    linktype iter = head, save = nullptr, newhead = nullptr;
 
-    while(iter)
+    while(iter != nullptr)
     {
       save = newhead;
       newhead = iter;
@@ -74,7 +73,7 @@ public:
 
     linktype iter = head;
 
-    while(iter)
+    while(iter != nullptr)
     {
       rstack.push(iter);
       iter = iter->next;
@@ -83,7 +82,7 @@ public:
     if(!rstack.empty())
     {
       head = rstack.top();
-      head->next = NULL;
+      head->next = nullptr;
       rstack.pop();
       iter = head;
     }
@@ -93,7 +92,7 @@ public:
       iter->next = rstack.top();
       rstack.pop();
       iter = iter->next;
-      iter->next = NULL;
+      iter->next = nullptr;
     }
   }
 

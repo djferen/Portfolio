@@ -4,7 +4,6 @@
 #ifndef _BINARYTREE_H_
 #define _BINARYTREE_H_
 
-#include <cstddef>
 #include <iostream>
 #include "binarytreenode.h"
 
@@ -17,7 +16,7 @@ struct binarytree
 
   binarytree ()
   {
-    root = NULL;
+    root = nullptr;
   }
 
   void push (const item_type & data);
@@ -34,8 +33,8 @@ private:
 
 template < typename item_type > void binarytree < item_type >::push (const item_type & data)
 {
-  if (root == NULL) {
-    root = new binarytreenode < item_type > (data, NULL, NULL, NULL);
+  if (root == nullptr) {
+    root = new binarytreenode < item_type > (data, nullptr, nullptr, nullptr);
     return;
   }
 
@@ -46,16 +45,16 @@ template < typename item_type >
   void binarytree < item_type >::push (binarytree_link h, const item_type & data)
 {
   if (data < h->data) {
-    if (h->left == NULL) {
-      h->left = new binarytreenode < item_type > (data, h, NULL, NULL);
+    if (h->left == nullptr) {
+      h->left = new binarytreenode < item_type > (data, h, nullptr, nullptr);
     }
     else {
       push (h->left, data);
     }
   }
   else if (data > h->data) {
-    if (h->right == NULL) {
-      h->right = new binarytreenode < item_type > (data, h, NULL, NULL);
+    if (h->right == nullptr) {
+      h->right = new binarytreenode < item_type > (data, h, nullptr, nullptr);
     }
     else {
       push (h->right, data);
@@ -78,7 +77,7 @@ typename binarytree<item_type>::binarytree_link binarytree < item_type >::search
 template < typename item_type >
 typename binarytree<item_type>::binarytree_link binarytree < item_type >::searchlink (binarytree_link h, const item_type & target)
 {
-  if (h != NULL) {
+  if (h != nullptr) {
     if(target == h->data)
     	return h;
     if(target < h->data)
@@ -87,13 +86,13 @@ typename binarytree<item_type>::binarytree_link binarytree < item_type >::search
     	return searchlink(h->right, target);
   }
   else
-	  return NULL;
+	  return nullptr;
 }
 
 template < typename item_type >
   bool binarytree < item_type >::search (binarytree_link h, item_type target)
 {
-  if (h != NULL) {
+  if (h != nullptr) {
     if(target == h->data)
     	return true;
     if(target < h->data)
@@ -114,7 +113,7 @@ void binarytree < item_type >::print()
 template < typename item_type >
 void binarytree < item_type >::print(binarytree_link h)
 {
-	if(h != NULL)
+	if(h != nullptr)
 	{
 	  print(h->left);
 	  std::cout << h->data << std::endl;
