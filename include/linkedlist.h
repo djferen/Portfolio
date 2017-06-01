@@ -32,6 +32,14 @@ public:
     head = nullptr;
   }
 
+  linkedlist(const linkedlist & ll) = default;
+
+  linkedlist(linkedlist && ll)
+  {
+     head = ll.head;
+     ll.head = nullptr;
+  }
+
   linkedlist(const item_type * items, int size) : head(nullptr)
   {
      linktype temp, iter;
@@ -96,6 +104,11 @@ public:
     }
   }
 
+  static linkedlist getBigLL(const int size)
+  {
+	  item_type big_data[size];           // I don't care that big_data contains whatever happens to be in memory
+	  return linkedlist(big_data, size);  // because I really just wanted to create a temporary object here in this return so I could test move constructor :-)
+  }
 
 private:
 

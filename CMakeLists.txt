@@ -31,7 +31,9 @@ add_executable(test-hascycle puzzles/hascycle.cpp)
 add_executable(test-fibonacci puzzles/fibonacci.cpp)
 add_executable(test-atomics puzzles/atomics.cpp)
 target_link_libraries(test-atomics Threads::Threads)
+
 add_executable(test-linkedlist test/test-linkedlist.cpp)
+target_compile_options(test-linkedlist PRIVATE -fno-elide-constructors)
 
 add_custom_target(TestNode test-node
                   DEPENDS test-node)
