@@ -82,3 +82,13 @@ add_custom_target(TestLL test-linkedlist
                                     
 add_custom_target(Test
                   DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC TestF TestLL)
+
+enable_testing()
+find_package(GTest REQUIRED)
+
+add_executable(unit-tests unit-tests/gtest-linkedlist.cpp unit-tests/gtest-main.cpp)
+target_link_libraries(unit-tests GTest::GTest GTest::Main)
+
+add_test(LinkedListTests unit-tests)
+
+                  

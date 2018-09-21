@@ -32,12 +32,53 @@ public:
     head = nullptr;
   }
 
-  linkedlist(const linkedlist & ll) = default;
+  ~linkedlist()
+  {
+	  linktype iter = head;
+	  linktype last = head;
+
+	  while(iter)
+	  {
+		  iter = iter->next;
+
+		  std::cout << "deleting: " << last << std::endl;
+
+		  delete last;
+
+		  last = iter;
+	  }
+  }
+
+  linkedlist(const linkedlist & ll) : head(nullptr)
+  {
+	  linktype temp = nullptr, citer = ll.head, iter = ll.head;
+	  bool first = true;
+
+	  while(iter)
+	  {
+		  if(head == nullptr)
+		  {
+			   head = new node<item_type> (iter->data);
+			   citer = head;
+		  }
+		  else
+		  {
+			  temp = new node<item_type> (iter->data);
+			  citer->next = temp;
+			  citer = temp;
+		  }
+		  iter = iter->next;
+	  }
+  }
 
   linkedlist(linkedlist && ll)
   {
-     head = ll.head;
-     ll.head = nullptr;
+	 std::cout << "Running move constructor..." << std::endl;
+
+	 head = ll.head;
+	 ll.head = nullptr;
+
+	 std::cout << "Exiting\n";
   }
 
   linkedlist(const item_type * items, int size) : head(nullptr)
@@ -59,6 +100,7 @@ public:
         }
      }
   }
+
 
   void reverseByPtr()
   {
@@ -104,10 +146,79 @@ public:
     }
   }
 
-  static linkedlist getBigLL(const int size)
+
+  bool containsCycle()
   {
-	  item_type big_data[size];           // I don't care that big_data contains whatever happens to be in memory
-	  return linkedlist(big_data, size);  // because I really just wanted to create a temporary object here in this return so I could test move constructor :-)
+	  linktype fast = head, slow = head;
+
+	  if(fast && fast->next && fast == fast->next)
+	  {
+		  return true;
+	  }
+
+	  while(fast && fast->next && fast->next->next)
+	  {
+		  fast = fast->next->next;
+
+		  if(fast == slow)
+		  {
+			  return true;
+		  }
+
+		  slow = slow->next;
+	  }
+
+	  return false;
+  }
+
+  linktype getLink(item_type item)
+  {
+	  linktype  iter = head;
+
+	  while(iter)
+	  {
+		  if(iter->data == item)
+		  {
+			  return iter;
+		  }
+		  iter = iter->next;
+	  }
+
+	  return nullptr;
+  }
+
+  linktype getTailNode()
+  {
+	  linktype iter = head;
+	  linktype tail = head;
+
+	  while(iter)
+	  {
+		  iter = iter->next;
+
+		  if(iter == nullptr)
+		  {
+			  return tail;
+		  }
+
+		  tail = iter;
+	  }
+
+	  return tail;
+  }
+
+  size_t getLength(void)
+  {
+	  size_t length = 0;
+	  linktype iter = head;
+
+	  while(iter)
+	  {
+		  length++;
+		  iter = iter->next;
+	  }
+
+	  return length;
   }
 
 private:
