@@ -78,7 +78,7 @@ add_custom_target(TestF test-fibonacci
 add_custom_target(TestA test-atomics
                   DEPENDS test-atomics)
 add_custom_target(TestLL test-linkedlist
-                  DEPENDS test-node test-linkedlist)
+                  DEPENDS test-linkedlist)
                                     
 add_custom_target(Test
                   DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC TestF TestLL)

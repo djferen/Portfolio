@@ -50,17 +50,11 @@ main ()
 
   int_ll_type::linktype tail_node = d_int_ll.getTailNode();
 
-  if(tail_node != nullptr)
-  {
-	  tail_node->next = mid_link;
-  }
-  /*
-
   std::cout << "d_int_ll has cycle: " << (d_int_ll.containsCycle() ? "true" : "false") << std::endl;
 
   int_ll_type empty_int_ll;
 
   std::cout << "empty_int_ll has cycle: " << (empty_int_ll.containsCycle() ? "true" : "false") << std::endl;
-*/
+
   return 0;
 }
