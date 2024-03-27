@@ -24,9 +24,11 @@ jobs:
 
     - name: Install gtest
       # Install gtest in the runner in a common location in a workspace away from the source
+      # Also list the files that are installed when libgtest-dev is installed for environment reporting
       run: |
         sudo apt-get update
         sudo apt-get install -y libgtest-dev cmake
+        dpkg-query -L libgtest-dev
         mkdir -p $HOME/build
         cd $HOME/build
         sudo cmake /usr/src/googletest/googletest
