@@ -20,9 +20,20 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+    - name: Cache gtest
+      id: cache-gtest
+      uses: actions/cache@v3
+      with:
+        path: |
+          /usr/lib/libgtest*.a
+          /usr/local/lib/googletest/libgtest*.a
+        key: ${{ runner.os }}-gtest
+
     - name: Install gtest
-        # Install gtest in the runner in a common location in a workspace away from the source
+        # Build gtest in a workspace away from the source
+        # Install in a common location in the runner
         # Also list the files that are installed when libgtest-dev is installed for environment reporting
+      if: steps.cache-gtest.outputs.cache-hit != 'true'
       run: |
         sudo apt-get update
         sudo apt-get install -y libgtest-dev cmake
