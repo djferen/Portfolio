@@ -26,12 +26,10 @@ jobs:
       # Install gtest in the runner in a common location in a workspace away from the source
       # Also list the files that are installed when libgtest-dev is installed for environment reporting.
       run: |
-        sudo apt-get update
-        sudo apt-get install -y googletest
-        dpkg-query -L googletest
-        mkdir -p $HOME/build-googletest
-        cd $HOME/build-googletest
-        cmake /usr/src/googletest/googletest
+        git clone https://github.com/google/googletest.git -b v1.14.0 googletest
+        mkdir -p googletest/build
+        cd googletest/build
+        cmake ..
         make
         make help
         sudo make install
