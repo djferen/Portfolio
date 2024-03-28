@@ -9,7 +9,17 @@ The goals of this project are:
 
 **General Setup Instructions:**
 
-A C/C++ development environment with `CMake`, `C++` compiler, `Make` and `gtest` installed.
+A C/C++ development environment with `CMake`, `C++` compiler, `Make` and `gtest` are all needed to be installed.
+
+Install gtest with: `make install-gtest`
+
+**C++ Lint Instructions:**
+
+C++ formatting is made easy by using formatting tools:
+
+1. Install the formatting tool: `make install-format`
+2. Run the format checker: `make check format`
+3. Run the auto-formatter: `make format`
 
 **Build Instructions:**
 
