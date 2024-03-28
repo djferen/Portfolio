@@ -31,7 +31,7 @@ jobs:
         dpkg-query -L googletest
         mkdir -p $HOME/build-googletest
         cd $HOME/build-googletest
-        sudo cmake /usr/src/googletest/googletest
+        cmake /usr/src/googletest/googletest
         make
         sudo make install
 
