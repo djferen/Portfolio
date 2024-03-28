@@ -33,6 +33,7 @@ jobs:
         cd $HOME/build-googletest
         cmake /usr/src/googletest/googletest
         make
+        make help
         sudo make install
 
     - name: Configure CMake
