@@ -1,13 +1,11 @@
 
-#include <iostream>
 #include "minheap.h"
+#include <iostream>
 
-int
-main ()
-{
-  typedef minheap < int > int_minheap_type;
+int main() {
+  typedef minheap<int> int_minheap_type;
 
-  int_minheap_type  int_minheap;
+  int_minheap_type int_minheap;
 
   int_minheap.add(40);
   int_minheap.add(20);

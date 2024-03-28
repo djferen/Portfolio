@@ -4,37 +4,30 @@
 
 using namespace std;
 
-struct Node
-{
-    int data;
-    Node* next;
+struct Node {
+  int data;
+  Node *next;
 };
 
-bool has_cycle(Node* head) 
-{
-    map<Node *, int> cycle_map;
-    
-    Node * iter = head;
-    while(iter != 0)
-    {
-        map<Node *, int>::iterator is_in_map = cycle_map.find(iter);
-        if(is_in_map != cycle_map.end())
-        {
-            return true;   
-        }
-        else
-        {
-        	cycle_map.insert(std::pair<Node *, int>(iter, 1));
-        }
-        
-        iter = iter->next;
+bool has_cycle(Node *head) {
+  map<Node *, int> cycle_map;
+
+  Node *iter = head;
+  while (iter != 0) {
+    map<Node *, int>::iterator is_in_map = cycle_map.find(iter);
+    if (is_in_map != cycle_map.end()) {
+      return true;
+    } else {
+      cycle_map.insert(std::pair<Node *, int>(iter, 1));
     }
-    return false;
+
+    iter = iter->next;
+  }
+  return false;
 }
 
-int main ()
-{
-  Node * head = 0;
+int main() {
+  Node *head = 0;
 
   cout << "0 " << (has_cycle(head) ? "true" : "false") << endl;
 
@@ -43,7 +36,7 @@ int main ()
 
   cout << "1 " << (has_cycle(head) ? "true" : "false") << endl;
 
-  Node * another = new Node();
+  Node *another = new Node();
   another->next = 0;
   head->next = another;
 
@@ -55,4 +48,3 @@ int main ()
 
   return 0;
 }
-

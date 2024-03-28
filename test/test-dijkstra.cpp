@@ -1,11 +1,6 @@
 
-#include <string>
-#include <iostream>
 #include "dijkstra.h"
+#include <iostream>
+#include <string>
 
-int
-main ()
-{
-
-  return 0;
-}
+int main() { return 0; }

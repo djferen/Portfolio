@@ -1,11 +1,9 @@
 
-#include <iostream>
 #include "sfifo.h"
+#include <iostream>
 
-int
-main ()
-{
-  typedef sfifo < int >int_fifo;
+int main() {
+  typedef sfifo<int> int_fifo;
 
   int_fifo myIntFIFO;
   std::cout << "front 0 " << myIntFIFO.front() << std::endl;
