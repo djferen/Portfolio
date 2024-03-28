@@ -27,6 +27,12 @@ format:
 	find . -name "*.cpp" -exec clang-format -i {} \;
 	find . -name "*.h" -exec clang-format -i {} \;
 
+.PHONY: build
+build:
+	rm -fr build
+	cmake -B build Release
+    cmake --build build Release
+
 .PHONY: run-python:
 run-python:
 	python python/djikstra.py
