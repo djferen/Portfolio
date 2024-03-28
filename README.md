@@ -2,10 +2,10 @@
 
 **Purpose:**
 
-The goals of this project are:
-
-1. Demonstrate some of software development skills included C++, CMake, and CI/CD
-2. Keep me doing something that I love doing
+This contains a simple, extensible library creation and test infrastructure and so portfolio functions as a library creation tool in that if you add:
+1. a *.h file in the include directory
+2. a *.cpp file in the src directory
+3. a test*.cpp file in the test directory
 
 **General Setup Instructions:**
 
