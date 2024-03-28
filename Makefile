@@ -6,13 +6,11 @@ install-format:
 .PHONY: install-gtest
 install-gtest:
 	git clone https://github.com/google/googletest.git -b v1.14.0 googletest
-	mkdir -p googletest/build
-	cd googletest/build
-	cmake ..
-	make
-	sudo make install
-	cd ../..
-	rm -rf googletest
+	mkdir googletest-build
+	cmake -S googletest -B googletest-build
+	cmake --build googletest-build
+	sudo make -C googletest-build install
+	rm -rf googletest googletest-build
 
 .PHONY: check-format
 check-format:
