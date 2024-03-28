@@ -26,7 +26,7 @@ format:
 	find . -name "*.cpp" -exec clang-format -i {} \;
 	find . -name "*.h" -exec clang-format -i {} \;
 
-.PHONY: run-python:
+.PHONY: run-python
 run-python:
 	python python/djikstra.py
 
