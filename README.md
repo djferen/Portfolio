@@ -9,7 +9,7 @@ The goals of this project are:
 
 **General Setup Instructions:**
 
-A C/C++ development environment with CMake and Make installed.
+A C/C++ development environment with `CMake`, `C++` compiler, `Make` and `gtest` installed.
 
 **Build Instructions:**
 
