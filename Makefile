@@ -12,7 +12,7 @@ install-format:
 
 .PHONY: install-cmake
 install-cmake:
-	apt-get update
+	sudo apt-get update
 	sudo apt-get install cmake -y
 
 .PHONY: install-gtest
