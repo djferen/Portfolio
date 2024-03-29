@@ -2,6 +2,10 @@ ifndef BUILD_TYPE
 override BUILD_TYPE = Release
 endif
 
+ifndef verbose
+override VERBOSE = OFF
+endif
+
 .PHONY: install-format
 install-format:
 	pip3 install clang-format
@@ -35,7 +39,7 @@ run-python:
 
 .PHONY: build
 build:
-	cmake -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_VERBOSE_MAKEFILE=ON
+	cmake -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_VERBOSE_MAKEFILE=${VERBOSE}
 	cmake --build build --config ${BUILD_TYPE}
 
 .PHONY: clean
