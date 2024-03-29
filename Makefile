@@ -35,7 +35,7 @@ run-python:
 	python python/djikstra.py
 
 .PHONY: build
-build: .prerequisite
+build:
 	rm -fr build
 	cmake -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
 	cmake --build build --config ${BUILD_TYPE}
