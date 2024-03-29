@@ -24,6 +24,11 @@ jobs:
     - name: Lint
       run: make check-format
 
+    - name: Build Debug
+      run: |
+        BUILD_TYPE=Debug make build
+        make clean
+
     - name: Build
       run: BUILD_TYPE=${{env.BUILD_TYPE}} make build
   
