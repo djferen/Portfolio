@@ -10,6 +10,24 @@ endif
 install-format:
 	pip3 install clang-format
 
+.PHONY: check-format
+check-format:
+	find . -name "*.cpp" -exec clang-format -n --verbose {} \;
+	find . -name "*.h" -exec clang-format -n --verbose {} \;
+
+.PHONY: format
+format:
+	find . -name "*.cpp" -exec clang-format -i {} \;
+	find . -name "*.h" -exec clang-format -i {} \;
+
+.PHONY: install-python
+install-python:
+	pip install pipenv
+
+.PHONY: run-python
+run-python:
+	python python/djikstra.py
+
 .PHONY: install-cmake
 install-cmake:
 	sudo apt-get update
@@ -26,24 +44,6 @@ install-gtest:
 
 .PHONE: install-prerequisites
 install-prerequisites: install-cmake install-gtest install-format
-
-.PHONY: install-python
-install-python:
-	pip install pipenv
-
-.PHONY: check-format
-check-format:
-	find . -name "*.cpp" -exec clang-format -n --verbose {} \;
-	find . -name "*.h" -exec clang-format -n --verbose {} \;
-
-.PHONY: format
-format:
-	find . -name "*.cpp" -exec clang-format -i {} \;
-	find . -name "*.h" -exec clang-format -i {} \;
-
-.PHONY: run-python
-run-python:
-	python python/djikstra.py
 
 .PHONY: build
 build:
