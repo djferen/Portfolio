@@ -1,3 +1,7 @@
+SHELL:=/bin/bash
+
+DEFAULT_TYPE='Release'
+BUILD_TYPE=${BUILD_TYPE:-$DEFAULT_TYPE}
 
 .PHONY: install-format
 install-format:
@@ -31,7 +35,7 @@ run-python:
 	python python/djikstra.py
 
 .PHONY: build
-build:
+build: .prerequisite
 	rm -fr build
-	cmake -B build
-	cmake --build build
+	cmake -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
+	cmake --build build --config ${BUILD_TYPE}

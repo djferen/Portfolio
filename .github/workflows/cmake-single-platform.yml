@@ -25,7 +25,7 @@ jobs:
       run: make check-format
 
     - name: Build
-      run: make build
+      run: BUILD_TYPE=${{env.BUILD_TYPE}} make build
   
     - name: Test
       working-directory: build
