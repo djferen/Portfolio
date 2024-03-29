@@ -2,7 +2,7 @@ ifndef BUILD_TYPE
 override BUILD_TYPE = Release
 endif
 
-ifndef verbose
+ifndef VERBOSE
 override VERBOSE = OFF
 endif
 
