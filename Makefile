@@ -1,3 +1,10 @@
+ifndef BUILD_TYPE
+override BUILD_TYPE = Release
+endif
+
+ifndef verbose
+override VERBOSE = OFF
+endif
 
 .PHONY: install-format
 install-format:
@@ -12,6 +19,10 @@ install-gtest:
 	sudo make -C googletest-build install
 	rm -rf googletest googletest-build
 
+.PHONY: install-python
+install-python:
+	pip install pipenv
+
 .PHONY: check-format
 check-format:
 	find . -name "*.cpp" -exec clang-format -n --verbose {} \;
@@ -21,3 +32,16 @@ check-format:
 format:
 	find . -name "*.cpp" -exec clang-format -i {} \;
 	find . -name "*.h" -exec clang-format -i {} \;
+
+.PHONY: run-python
+run-python:
+	python python/djikstra.py
+
+.PHONY: build
+build:
+	cmake -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_VERBOSE_MAKEFILE=${VERBOSE}
+	cmake --build build --config ${BUILD_TYPE}
+
+.PHONY: clean
+clean:
+	rm -fR build
