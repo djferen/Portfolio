@@ -37,8 +37,8 @@ run-python:
 build:
 	cmake -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE}
 	cmake --build build --config ${BUILD_TYPE}
+	ls build
 
 .PHONY: clean
 clean:
-	ls
 	rm -fR build
