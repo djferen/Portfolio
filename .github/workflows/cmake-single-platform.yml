@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-env:
-  BUILD_TYPE: Release
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,11 +22,14 @@ jobs:
       run: make check-format
 
     - name: Build Debug
-      run: |
-        BUILD_TYPE=Debug make clean build
+      run: BUILD_TYPE=Debug make clean build
 
-    - name: Build
-      run: BUILD_TYPE=${{env.BUILD_TYPE}} make clean build
+    - name: Test
+      working-directory: build
+      run: make Test
+
+    - name: Build Release
+      run: make clean build
   
     - name: Test
       working-directory: build
