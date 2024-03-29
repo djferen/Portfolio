@@ -2,13 +2,14 @@
 
 **Purpose**
 
-This project contains a simple, extensible library creation and test infrastructure pattern there for this portfolio project functions as a library creation tool in that a new C++ library file could be created and tested if you add the following:
+This `Portfolio` project contains a simple, extensible library creation and test infrastructure pattern.  This project functions as a library creation tool in that a new C++ library file could be created and tested when the following is added:
 1. a *.h file in the include directory for adding library code
 2. a test*.cpp file in the test directory to test the library code
+3. update the `CMakeLists.txt` file to define its built and test target configurations
 
 **Environments:**
 
-This supports Github Action code for building and testing on github.com and running the same Github action code locally with [act](https://github.com/nektos/act) so that code can be developed and tested locally.
+This supports Github Action code for building and testing on github.com and running the same Github action code locally with [act](https://github.com/nektos/act) so that portfolio code can be developed and tested locally.
 
 **General Setup Instructions:**
 
@@ -26,7 +27,7 @@ C++ formatting is made easy by using formatting tools:
 
 **Build Instructions:**
 
-  `cmake . && make`
+  `make build`
 
 Run tests with:
 
