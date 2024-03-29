@@ -15,8 +15,7 @@ jobs:
 
     - name: Install Prerequisites
       run: |
-        make install-gtest
-        make install-format
+        make install-prerequisites
 
     - name: Lint
       run: make check-format
