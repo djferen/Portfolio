@@ -10,6 +10,11 @@ endif
 install-format:
 	pip3 install clang-format
 
+.PHONY: install-cmake
+install-cmake:
+	apt-get update
+	sudo apt-get install cmake -y
+
 .PHONY: install-gtest
 install-gtest:
 	git clone https://github.com/google/googletest.git -b v1.14.0 googletest
@@ -18,6 +23,9 @@ install-gtest:
 	cmake --build googletest-build
 	sudo make -C googletest-build install
 	rm -rf googletest googletest-build
+
+.PHONE: install-prerequisites
+install-prerequisites: install-cmake install-gtest install-format
 
 .PHONY: install-python
 install-python:

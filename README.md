@@ -1,17 +1,20 @@
 # Portfolio
 
-**Purpose:**
+**Purpose**
 
-This contains a simple, extensible library creation and test infrastructure and so portfolio functions as a library creation tool in that if you add:
-1. a *.h file in the include directory
-2. a *.cpp file in the src directory
-3. a test*.cpp file in the test directory
+This project contains a simple, extensible library creation and test infrastructure pattern there for this portfolio project functions as a library creation tool in that a new C++ library file could be created and tested if you add the following:
+1. a *.h file in the include directory for adding library code
+2. a test*.cpp file in the test directory to test the library code
+
+**Environments:**
+
+This supports Github Action code for building and testing on github.com and running the same Github action code locally with [act](https://github.com/nektos/act) so that code can be developed and tested locally.
 
 **General Setup Instructions:**
 
-A C/C++ development environment with `CMake`, `C++` compiler, `Make` and `gtest` are all needed to be installed.
+A C/C++ development environment with `CMake`, `C++` compiler, `Make` and `gtest`, etc. are all needed to be installed.
 
-Install gtest with: `make install-gtest`
+Install prerequisites with: `make install-prerequisites`
 
 **C++ Lint Instructions:**
 
@@ -43,7 +46,7 @@ The C++ code can be found as follows:
 2. The `tests` of the data structures are located in the test directory.
 3. The `puzzles` (C++ coding challenges) are located in the puzzles directory.
 
-**Data Structures Library**
+**Data Structures Library:**
 
 The library of data structures code and test code contain the following structures:
 
