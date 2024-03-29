@@ -24,14 +24,14 @@ jobs:
     - name: Build Debug
       run: BUILD_TYPE=Debug make clean build
 
-    - name: Test
+    - name: Test Debug
       working-directory: build
       run: make Test
 
     - name: Build Release
       run: make clean build
   
-    - name: Test
+    - name: Test Release
       working-directory: build
       run: make Test
 
