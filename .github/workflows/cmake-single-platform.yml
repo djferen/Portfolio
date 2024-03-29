@@ -26,11 +26,10 @@ jobs:
 
     - name: Build Debug
       run: |
-        BUILD_TYPE=Debug make build
-        make clean
+        BUILD_TYPE=Debug make clean build
 
     - name: Build
-      run: BUILD_TYPE=${{env.BUILD_TYPE}} make build
+      run: BUILD_TYPE=${{env.BUILD_TYPE}} make clean build
   
     - name: Test
       working-directory: build
