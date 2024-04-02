@@ -29,6 +29,7 @@ add_executable(test-queue puzzles/queue.cpp)
 add_executable(test-hascycle puzzles/hascycle.cpp)
 add_executable(test-fibonacci puzzles/fibonacci.cpp)
 add_executable(test-atomics puzzles/atomics.cpp)
+add_executable(test-unique puzzles/unique.cpp)
 target_link_libraries(test-atomics Threads::Threads)
 
 add_executable(test-linkedlist test/test-linkedlist.cpp)
@@ -78,9 +79,11 @@ add_custom_target(TestA test-atomics
                   DEPENDS test-atomics)
 add_custom_target(TestLL test-linkedlist
                   DEPENDS test-linkedlist)
+add_custom_target(TestUnique test-unique
+                  DEPENDS test-unique)
                                     
 add_custom_target(Test
-                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC TestF TestLL)
+                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC TestF TestLL TestUnique)
 
 enable_testing()
 find_package(GTest REQUIRED)
