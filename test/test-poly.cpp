@@ -3,9 +3,9 @@
 using namespace std;
 
 int main() {
-  User *user = new User();
-  user->Action();
-  delete user;
+  User *ptrUser = new User();
+  ptrUser->Action();
+  delete ptrUser;
 
   User user;
   user.Action();
