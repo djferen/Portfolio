@@ -23,7 +23,7 @@ int main() {
   cout << endl << "App: Launched with the ConcreteCreator2.\n";
   Creator* creator2 = new ConcreteCreator2();
   ClientCode(*creator2);
-  Product * product2 = creator1->FactoryMethod();
+  Product * product2 = creator2->FactoryMethod();
   cout << endl << product2.Operation() << endl;
 
   delete creator1;
