@@ -64,12 +64,13 @@ class B {
   virtual void Display() = 0;
   virtual void Action() = 0;  
 };
+
 class D : public B {
+  virtual // Ensures to invoke actual object destructor
+      ~D() {}
   void Display() {}
   void Action() {}
 };
-
-
 
 class Product {
  public:

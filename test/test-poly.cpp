@@ -14,11 +14,10 @@ int main() {
   b->Display();
   b->Action();
 
-  std::cout << "App: Launched with the ConcreteCreator1.\n";
+  cout << "App: Launched with the ConcreteCreator1.\n";
   Creator* creator = new ConcreteCreator1();
   ClientCode(*creator);
-  std::cout << std::endl;
-  std::cout << "App: Launched with the ConcreteCreator2.\n";
+  cout << endl << "App: Launched with the ConcreteCreator2.\n";
   Creator* creator2 = new ConcreteCreator2();
   ClientCode(*creator2);
 
