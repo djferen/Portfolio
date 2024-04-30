@@ -15,12 +15,19 @@ int main() {
   b->Action();
 
   cout << "App: Launched with the ConcreteCreator1.\n";
-  Creator* creator = new ConcreteCreator1();
-  ClientCode(*creator);
+  Creator* creator1 = new ConcreteCreator1();
+  ClientCode(*creator1);
+  Product * product1 = creator1->FactoryMethod();
+  cout << endl << product1.Operation() << endl;
+
   cout << endl << "App: Launched with the ConcreteCreator2.\n";
   Creator* creator2 = new ConcreteCreator2();
   ClientCode(*creator2);
+  Product * product2 = creator1->FactoryMethod();
+  cout << endl << product2.Operation() << endl;
 
-  delete creator;
-  delete creator2;  
+  delete creator1;
+  delete creator2;
+  delete product1;
+  delete product2;
 }
