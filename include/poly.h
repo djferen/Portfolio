@@ -112,6 +112,13 @@ class ConcreteCreator1 : public Creator {
   }
 };
 
+class ConcreteCreator2 : public Creator {
+ public:
+  Product* FactoryMethod() const override {
+    return new ConcreteProduct2();
+  }
+};
+
 void ClientCode(const Creator& creator) {
   std::cout << "Client: I'm not aware of the creator's class, but it still works.\n"
             << creator.SomeOperation() << std::endl;
