@@ -43,6 +43,18 @@ public:
     }
   }
 
+  static User * CreateUser(int input)
+  {
+    User * _pBase;
+    if (input == 1) {
+      _pBase = new Derived1;
+    } else {
+      _pBase = new Derived2;
+    }
+    return _pBase;
+  }
+
+
   ~User() {
     if (pBase) {
       delete pBase;

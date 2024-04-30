@@ -7,8 +7,8 @@ int main() {
   ptrUser->Action();
   delete ptrUser;
 
-  User user;
-  user.Action();
+  ptrUser = User::CreateUser(1);
+  ptrUser->Action();
 
   Base * base = new Derived1;
   base->DisplayAction();
