@@ -17,6 +17,7 @@ add_executable(test-binarytreenode test/test-binarytreenode.cpp)
 add_executable(test-binarytree test/test-binarytree.cpp)
 add_executable(test-dijkstra test/test-dijkstra.cpp)
 add_executable(test-minheap test/test-minheap.cpp)
+add_executable(test-poly  test/test-poly.cpp)
 add_executable(test-roman puzzles/roman.cpp)
 add_executable(test-getlongestword puzzles/getlongestword.cpp)
 add_executable(test-lettercapitalize puzzles/lettercapitalize.cpp)
@@ -51,7 +52,9 @@ add_custom_target(TestBT test-binarytree
 add_custom_target(TestD test-dijkstra
                   DEPENDS test-dijkstra)
 add_custom_target(TestMH test-minheap
-                  DEPENDS test-minheap)                  
+                  DEPENDS test-minheap)
+add_custom_target(TestPoly test-poly
+                  DEPENDS test-poly)
 add_custom_target(TestR test-roman
                   DEPENDS test-roman)
 add_custom_target(TestGLW test-getlongestword
@@ -80,7 +83,7 @@ add_custom_target(TestLL test-linkedlist
                   DEPENDS test-linkedlist)
                                     
 add_custom_target(Test
-                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC TestF TestLL)
+                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestPoly TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC TestF TestLL)
 
 enable_testing()
 find_package(GTest REQUIRED)
