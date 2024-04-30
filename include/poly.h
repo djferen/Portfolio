@@ -59,7 +59,7 @@ private:
 
 class B {
   virtual // Ensures to invoke actual object destructor
-      ~Base() {}
+      ~B() {}
   // An interface
   virtual void Display() = 0;
   virtual void Action() = 0;  
