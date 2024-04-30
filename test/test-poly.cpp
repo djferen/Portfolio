@@ -10,7 +10,7 @@ int main() {
   User user;
   user.Action();
 
-  Base *base = &user;
+  Base * base = new Derived1;
   base->DisplayAction();
 
   B *b = new D;
