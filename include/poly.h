@@ -58,18 +58,20 @@ private:
 };
 
 class B {
-  virtual // Ensures to invoke actual object destructor
-      ~B() {}
-  // An interface
-  virtual void Display() = 0;
-  virtual void Action() = 0;  
+  public:
+    virtual // Ensures to invoke actual object destructor
+        ~B() {}
+    // An interface
+    virtual void Display() = 0;
+    virtual void Action() = 0;  
 };
 
 class D : public B {
-  virtual // Ensures to invoke actual object destructor
-      ~D() {}
-  void Display() {}
-  void Action() {}
+  public:
+    virtual // Ensures to invoke actual object destructor
+        ~D() {}
+    void Display() {}
+    void Action() {}
 };
 
 class Product {
