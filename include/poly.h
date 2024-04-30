@@ -31,8 +31,6 @@ public:
   void DisplayAction() { cout << "Action from Derived2" << endl; }
 };
 
-//// LIBRARY END
-
 class User {
 public:
   // Creates Derived1 or Derived2 based on input
@@ -58,9 +56,6 @@ public:
 private:
   Base *pBase;
 };
-
-// Run Time Type Identification(RTTI)
-// but without virtual function
 
 class B {};
 class D : public B {};
