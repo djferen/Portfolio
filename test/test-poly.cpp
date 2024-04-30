@@ -14,4 +14,6 @@ int main() {
   base->DisplayAction();
 
   B *b = new D;
+  b->Display();
+  b->Action();
 }
