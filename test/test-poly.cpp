@@ -7,13 +7,21 @@ int main() {
   ptrUser->Action();
   delete ptrUser;
 
-  ptrUser = User::CreateUser(1);
-  ptrUser->Action();
-
   Base * base = new Derived1;
   base->DisplayAction();
 
   B *b = new D;
   b->Display();
   b->Action();
+
+  std::cout << "App: Launched with the ConcreteCreator1.\n";
+  Creator* creator = new ConcreteCreator1();
+  ClientCode(*creator);
+  std::cout << std::endl;
+  std::cout << "App: Launched with the ConcreteCreator2.\n";
+  Creator* creator2 = new ConcreteCreator2();
+  ClientCode(*creator2);
+
+  delete creator;
+  delete creator2;  
 }
