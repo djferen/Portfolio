@@ -7,12 +7,14 @@ int main() {
   ptrUser->Action();
   delete ptrUser;
 
-  Base *base = new Derived1;
+  Base *base1 = new Derived1;
   base->DisplayAction();
 
-  B *b = new D;
-  b->Display();
-  b->Action();
+  Base *base2 = new Derived2;
+  base->DisplayAction();
+
+  delete base1;
+  delete base2;
 
   cout << "App: Launched with the ConcreteCreator1.\n";
   Creator *creator1 = new ConcreteCreator1();

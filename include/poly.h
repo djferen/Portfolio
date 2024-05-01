@@ -2,14 +2,12 @@
 #include <iostream>
 using namespace std;
 
+// An interface
 class Base {
 public:
   Base() {}
 
-  virtual // Ensures to invoke actual object destructor
-      ~Base() {}
-
-  // An interface
+  virtual ~Base() {}
   virtual void DisplayAction() = 0;
 };
 
@@ -55,21 +53,6 @@ public:
 
 private:
   Base *pBase;
-};
-
-// An interface
-class B {
-public:
-  virtual ~B() {}
-  virtual void Display() = 0;
-  virtual void Action() = 0;
-};
-
-class D : public B {
-public:
-  virtual ~D() {}
-  void Display() {}
-  void Action() {}
 };
 
 class Product {
