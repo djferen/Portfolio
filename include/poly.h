@@ -57,19 +57,17 @@ private:
   Base *pBase;
 };
 
+// An interface
 class B {
   public:
-    virtual // Ensures to invoke actual object destructor
-        ~B() {}
-    // An interface
+    virtual ~B() {}
     virtual void Display() = 0;
     virtual void Action() = 0;  
 };
 
 class D : public B {
   public:
-    virtual // Ensures to invoke actual object destructor
-        ~D() {}
+    virtual ~D() {}
     void Display() {}
     void Action() {}
 };
