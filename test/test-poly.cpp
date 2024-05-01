@@ -8,10 +8,10 @@ int main() {
   delete ptrUser;
 
   Base *base1 = new Derived1;
-  base->DisplayAction();
+  base1->DisplayAction();
 
   Base *base2 = new Derived2;
-  base->DisplayAction();
+  base2->DisplayAction();
 
   delete base1;
   delete base2;
