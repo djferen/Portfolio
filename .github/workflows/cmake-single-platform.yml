@@ -20,15 +20,18 @@ jobs:
     - name: Lint
       run: make check-format
 
+    - name: Build Env
+      run: make build-env
+
     - name: Build Debug
-      run: BUILD_TYPE=Debug make clean build build-env
+      run: BUILD_TYPE=Debug make clean build
 
     - name: Test Debug
       working-directory: build
       run: make Test
 
     - name: Build Release
-      run: make clean build build-env
+      run: make clean build
   
     - name: Test Release
       working-directory: build
