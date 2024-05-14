@@ -45,7 +45,7 @@ public:
     }
   }
 
-  void isDirectory(const string &path) {
+  bool isDirectory(const string &path) {
 
     // Split path based on separators (e.g., '/')
     vector<string> tokens;
