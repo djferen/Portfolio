@@ -18,7 +18,6 @@ format:
 
 .PHONY: install-python
 install-python:
-	pip install pipenv
 	sudo apt-get install python3-pip -y
 
 .PHONY: run-python
