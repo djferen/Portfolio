@@ -34,7 +34,7 @@ install-rust:
 
 .PHONY: install-prerequisites
 install-prerequisites:
-	apt-get update && apt-get install sudo -y
+	sudo apt-get update
 	sudo TZ="America/Los_Angeles" apt-get install cmake make git software-properties-common build-essential clang-format -y
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
 	sudo apt-get update
