@@ -19,7 +19,7 @@ format:
 .PHONY: install-python
 install-python:
 	pip install pipenv
-	apt-get install python3-pip -y
+	sudo apt-get install python3-pip -y
 
 .PHONY: run-python
 run-python:
@@ -35,7 +35,8 @@ install-rust:
 
 .PHONY: install-prerequisites
 install-prerequisites:
-	sudo TZ="America/Los_Angeles" apt-get install cmake make sudo git software-properties-common build-essential clang-format -y
+	apt-get update && apt-get install sudo -y
+	sudo TZ="America/Los_Angeles" apt-get install cmake make git software-properties-common build-essential clang-format -y
 	sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
 	sudo apt-get update
 	sudo apt-get upgrade libstdc++6
