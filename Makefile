@@ -22,11 +22,12 @@ format:
 
 .PHONY: install-python
 install-python:
-	pip install pipenv
+	pip install tensorflow
 
 .PHONY: run-python
 run-python:
-	python python/djikstra.py
+	echo python python/djikstra.py
+	python python/mytf.py
 
 .PHONY: install-cmake
 install-cmake:
