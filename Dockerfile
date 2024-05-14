@@ -23,4 +23,4 @@ RUN strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX && \
 	mkdir googletest-build && \
 	cmake -S googletest -B googletest-build && \
 	cmake --build googletest-build && \
-	sudo make -C googletest-build install
+	make -C googletest-build install

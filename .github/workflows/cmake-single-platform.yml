@@ -21,7 +21,7 @@ jobs:
       run: make check-format
 
     - name: Build Env
-      run: make build-env
+      run: make build-env run-env
 
     - name: Build Debug
       run: BUILD_TYPE=Debug make clean build
