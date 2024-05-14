@@ -46,7 +46,7 @@ install-gtest:
 install-rust:
 	curl https://sh.rustup.rs -sSf > install-rust.sh
 	chmod 755 install-rust.sh
-    ./install-rust.sh -y	
+	./install-rust.sh -y	
 	rm ./install-rust.sh
 	export PATH="${HOME}/.cargo/bin:${PATH}"
 
