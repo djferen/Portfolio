@@ -50,7 +50,7 @@ install-rust:
 	rm ./install-rust.sh
 	export PATH="${HOME}/.cargo/bin:${PATH}"
 
-.PHONE: install-prerequisites
+.PHONY: install-prerequisites
 install-prerequisites: install-cmake install-gtest install-format
 
 .PHONY: build-rust
