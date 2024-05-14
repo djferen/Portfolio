@@ -35,6 +35,11 @@ install-cmake:
 
 .PHONY: install-gtest
 install-gtest:
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get install gcc-5
+	sudo apt-get upgrade libstdc++6
+	strings /usr/lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX
 	git clone https://github.com/google/googletest.git -b v1.14.0 googletest
 	mkdir googletest-build
 	cmake -S googletest -B googletest-build
