@@ -31,7 +31,7 @@ add_executable(test-queue puzzles/queue.cpp)
 add_executable(test-hascycle puzzles/hascycle.cpp)
 add_executable(test-fibonacci puzzles/fibonacci.cpp)
 add_executable(test-atomics puzzles/atomics.cpp)
-add_executable(test-keypad puzzles/test-keypad.cpp)
+add_executable(test-keypad test/test-keypad.cpp)
 target_link_libraries(test-atomics Threads::Threads)
 
 add_executable(test-linkedlist test/test-linkedlist.cpp)
