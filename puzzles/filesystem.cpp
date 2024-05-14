@@ -5,18 +5,18 @@
 using namespace std;
 
 class FileSystem {
- private:
+private:
   struct Node {
     string name;
     // Can be extended to store additional file information (size, type)
     bool isDirectory;
-    unordered_map<string, Node*> children;
+    unordered_map<string, Node *> children;
   };
 
-  Node* root;
-  Node* current;
+  Node *root;
+  Node *current;
 
- public:
+public:
   FileSystem() {
     root = new Node{"/", true, {}};
     current = root;
@@ -39,12 +39,12 @@ class FileSystem {
     }
 
     cout << "Contents of " << current->name << ":" << endl;
-    for (const auto& [name, node] : current->children) {
+    for (const auto &[name, node] : current->children) {
       cout << name << (node->isDirectory ? " (dir)" : "") << endl;
     }
   }
 
-  void isDirectory(const string& path) {
+  void isDirectory(const string &path) {
 
     // Split path based on separators (e.g., '/')
     vector<string> tokens;
@@ -63,8 +63,8 @@ class FileSystem {
       tokens.push_back(token);
     }
 
-    Node* temp = current;
-    for (const string& dir : tokens) {
+    Node *temp = current;
+    for (const string &dir : tokens) {
       if (temp->isDirectory && temp->children.count(dir)) {
         temp = temp->children[dir];
       } else {
@@ -76,7 +76,7 @@ class FileSystem {
     return true;
   }
 
-  void changeDirectory(const string& path) {
+  void changeDirectory(const string &path) {
     if (path == "/") {
       current = root;
       return;
@@ -99,8 +99,8 @@ class FileSystem {
       tokens.push_back(token);
     }
 
-    Node* temp = current;
-    for (const string& dir : tokens) {
+    Node *temp = current;
+    for (const string &dir : tokens) {
       if (temp->isDirectory && temp->children.count(dir)) {
         temp = temp->children[dir];
       } else {
@@ -111,5 +111,4 @@ class FileSystem {
 
     current = temp;
   }
-
 };

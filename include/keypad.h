@@ -5,20 +5,12 @@
 
 using namespace std;
 
-const vector<string> keypad = {
-  "", // 0
-  "", // 1
-  "abc",
-  "def",
-  "ghi",
-  "jkl",
-  "mno",
-  "pqrs",
-  "tuv",
-  "wxyz"
-};
+const vector<string> keypad = {"", // 0
+                               "", // 1
+                               "abc", "def",  "ghi", "jkl",
+                               "mno", "pqrs", "tuv", "wxyz"};
 
-vector<string> findCombinations(const string& digits) {
+vector<string> findCombinations(const string &digits) {
   stack<pair<string, int>> combinations;
   combinations.push({"", 0});
 
@@ -42,23 +34,4 @@ vector<string> findCombinations(const string& digits) {
   }
 
   return results;
-}
-
-int main() {
-  int number = 919;
-
-  string digits = to_string(number);
-
-  vector<string> results = findCombinations(digits);
-
-  if (results.empty()) {
-    cout << "No letter combinations found." << endl;
-  } else {
-    cout << "Possible letter combinations:" << endl;
-    for (const string& combination : results) {
-      cout << combination << endl;
-    }
-  }
-
-  return 0;
 }
