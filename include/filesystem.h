@@ -41,7 +41,8 @@ public:
 
     cout << "Contents of " << current->name << ":" << endl;
     for (auto it : current->children) {
-      cout << it.first << ": " << (it.second->isDirectory ? " (dir)" : "") << endl;
+      cout << it.first << ": " << (it.second->isDirectory ? " (dir)" : "")
+           << endl;
     }
   }
 
