@@ -38,3 +38,9 @@ jobs:
       run: |
         make install-python
         make run-python
+
+    - name: Rust
+      run: |
+        make install-rust
+        make build-rust
+        make test-rust

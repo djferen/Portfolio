@@ -42,8 +42,25 @@ install-gtest:
 	sudo make -C googletest-build install
 	rm -rf googletest googletest-build
 
+.PHONY: install-rust
+install-rust:
+	curl https://sh.rustup.rs -sSf > install-rust.sh
+	chmod 755 install-rust.sh
+	./install-rust.sh -y	
+	rm ./install-rust.sh
+	export PATH="${HOME}/.cargo/bin:${PATH}"
+
 .PHONE: install-prerequisites
 install-prerequisites: install-cmake install-gtest install-format
+
+.PHONY: build-rust
+build-rust: install-rust
+	cargo check --manifest-path projects/hello-rust/hello_cargo/Cargo.toml
+	cargo build --manifest-path projects/hello-rust/hello_cargo/Cargo.toml
+
+.PHONY: test-rust
+test-rust: build-rust
+	cargo run --manifest-path projects/hello-rust/hello_cargo/Cargo.toml
 
 .PHONY: build
 build:
