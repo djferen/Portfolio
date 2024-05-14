@@ -64,6 +64,16 @@ template <typename item_type> struct fifo {
     }
     return false;
   }
+
+  doublylinkednode_link findLink(item_type target) {
+    doublylinkednode_link node = h;
+    while (node != nullptr) {
+      if (node->data == target)
+        return node;
+      node = node->next;
+    }
+    return nullptr;
+  }  
 };
 
 #endif

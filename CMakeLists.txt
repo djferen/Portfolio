@@ -17,6 +17,8 @@ add_executable(test-binarytreenode test/test-binarytreenode.cpp)
 add_executable(test-binarytree test/test-binarytree.cpp)
 add_executable(test-dijkstra test/test-dijkstra.cpp)
 add_executable(test-minheap test/test-minheap.cpp)
+add_executable(test-poly test/test-poly.cpp)
+add_executable(test-filesystem test/test-filesystem.cpp)
 add_executable(test-roman puzzles/roman.cpp)
 add_executable(test-getlongestword puzzles/getlongestword.cpp)
 add_executable(test-lettercapitalize puzzles/lettercapitalize.cpp)
@@ -29,6 +31,7 @@ add_executable(test-queue puzzles/queue.cpp)
 add_executable(test-hascycle puzzles/hascycle.cpp)
 add_executable(test-fibonacci puzzles/fibonacci.cpp)
 add_executable(test-atomics puzzles/atomics.cpp)
+add_executable(test-keypad test/test-keypad.cpp)
 target_link_libraries(test-atomics Threads::Threads)
 
 add_executable(test-linkedlist test/test-linkedlist.cpp)
@@ -51,7 +54,11 @@ add_custom_target(TestBT test-binarytree
 add_custom_target(TestD test-dijkstra
                   DEPENDS test-dijkstra)
 add_custom_target(TestMH test-minheap
-                  DEPENDS test-minheap)                  
+                  DEPENDS test-minheap)
+add_custom_target(TestPoly test-poly
+                  DEPENDS test-poly)
+add_custom_target(TestFS test-filesystem
+                  DEPENDS test-filesystem)
 add_custom_target(TestR test-roman
                   DEPENDS test-roman)
 add_custom_target(TestGLW test-getlongestword
@@ -76,11 +83,13 @@ add_custom_target(TestF test-fibonacci
                   DEPENDS test-fibonacci)
 add_custom_target(TestA test-atomics
                   DEPENDS test-atomics)
+add_custom_target(TestKeyPad test-keypad
+                  DEPENDS test-keypad)
 add_custom_target(TestLL test-linkedlist
                   DEPENDS test-linkedlist)
                                     
 add_custom_target(Test
-                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC TestF TestLL)
+                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestPoly TestFS TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC TestF TestLL TestKeyPad)
 
 enable_testing()
 find_package(GTest REQUIRED)
