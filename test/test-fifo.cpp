@@ -20,7 +20,7 @@ int main() {
   if (myIntFIFO.find(30))
     std::cout << "Found 30" << std::endl;
 
-  typedef fifo<init>::doublylinkednode_link link;
+  typedef fifo<int>::doublylinkednode_link link;
   link = myIntFIFO.findLink(30);
   if(link != nullptr) {
     std::cout << "found " << link->data << std::endl;
