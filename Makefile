@@ -56,6 +56,10 @@ build-rust: install-rust
 test-rust: build-rust
 	cargo run --manifest-path projects/hello-rust/hello_cargo/Cargo.toml
 
+.PHONY: build-env
+build-env:
+	docker build .
+
 .PHONY: build
 build:
 	cmake -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_VERBOSE_MAKEFILE=${VERBOSE}

@@ -21,14 +21,14 @@ jobs:
       run: make check-format
 
     - name: Build Debug
-      run: BUILD_TYPE=Debug make clean build
+      run: BUILD_TYPE=Debug make clean build build-env
 
     - name: Test Debug
       working-directory: build
       run: make Test
 
     - name: Build Release
-      run: make clean build
+      run: make clean build build-env
   
     - name: Test Release
       working-directory: build
