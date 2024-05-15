@@ -64,6 +64,10 @@ build-env:
 run-env:
 	docker run -v ~/workspaces:/workspaces docker.io/library/build-env /bin/bash -c "echo 'Ok' && c++ --version"
 
+.PHONY: irun-env
+irun-env:
+	docker run -it -v /workspaces:/workspaces docker.io/library/build-env /bin/bash
+
 .PHONY: build
 build:
 	cmake -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_VERBOSE_MAKEFILE=${VERBOSE}
