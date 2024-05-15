@@ -62,7 +62,7 @@ build-env:
 
 .PHONY: run-env
 run-env:
-	docker run -it -v ~/workspaces:/workspaces docker.io/library/build-env /bin/bash -c "echo 'Ok' && c++ --version"
+	docker run -v ~/workspaces:/workspaces docker.io/library/build-env /bin/bash -c "echo 'Ok' && c++ --version"
 
 .PHONY: build
 build:
