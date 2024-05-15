@@ -60,10 +60,12 @@ jobs:
       #   push-to-registry: true
 
   build:
-    runs-on: ghcr.io/djferen/portfolio:docker-image-integration
-
     steps:
     - uses: actions/checkout@v3
+
+    - name: Install Prerequisites
+      run: |
+        make install-prerequisites
 
     - name: Lint
       run: make check-format
