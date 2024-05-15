@@ -68,6 +68,10 @@ run-ghcr-env:
 run-env:
 	docker run -v ~/workspaces:/workspaces docker.io/library/build-env /bin/bash -c "echo 'Ok' && c++ --version"
 
+.PHONY: docker-build
+docker-build:
+	docker run -v ~/workspaces:/workspaces docker.io/library/build-env /bin/bash -c "make build"
+
 .PHONY: irun-env
 irun-env:
 	docker run -it -v /workspaces:/workspaces docker.io/library/build-env /bin/bash
