@@ -89,7 +89,7 @@ jobs:
           push: true
           tags: |
             ${{ steps.meta.outputs.tags }}
-            test
+            name-test:latest
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Run docker based build
