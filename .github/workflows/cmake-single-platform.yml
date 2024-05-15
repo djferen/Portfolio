@@ -60,7 +60,7 @@ jobs:
       #   push-to-registry: true
 
       - name: Testing image
-        uses: ghcr.io/djferen/portfolio:docker-image-integration
+        uses: ./Dockerfile
         with:
           entrypoint: ./entrypoint.sh
           args: The ${{ github.event_name }} event triggered this step.
