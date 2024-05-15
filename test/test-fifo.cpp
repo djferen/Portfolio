@@ -22,9 +22,9 @@ int main() {
 
   typedef doublylinkednode<int> int_doublylinkednode;
   int_doublylinkednode::link link = myIntFIFO.findLink(30);
-  if(link != nullptr) {
+  if (link != nullptr) {
     std::cout << "found " << link->data << std::endl;
-  }  
+  }
 
   int temp;
   while (myIntFIFO.dequeue(&temp)) {
