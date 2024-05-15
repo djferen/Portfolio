@@ -59,6 +59,12 @@ jobs:
       #    subject-digest: ${{ steps.push.outputs.digest }}
       #   push-to-registry: true
 
+      - name: Testing image
+        uses: ghcr.io/djferen/portfolio:docker-image-integration
+        with:
+          entrypoint: ./entrypoint.sh
+          args: The ${{ github.event_name }} event triggered this step.
+
   build:
     runs-on: ubuntu-latest
 
