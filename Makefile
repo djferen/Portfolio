@@ -62,7 +62,7 @@ build-env:
 
 .PHONY: run-ghcr-env
 run-ghcr-env:
-	docker run -v $PWD:~/workspace -w~/workspace ghcr.io/djferen/portfolio:docker-image-integration /bin/bash -c "echo 'Ok' && c++ --version"
+	docker run -v $PWD:/workspaces -w/workspaces ghcr.io/djferen/portfolio:docker-image-integration /bin/bash -c "echo 'Ok' && c++ --version"
 
 .PHONY: run-env
 run-env:
