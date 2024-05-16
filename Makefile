@@ -60,21 +60,17 @@ test-rust: build-rust
 build-env:
 	docker build . -t build-env
 
-.PHONY: run-ghcr-env
-run-ghcr-env:
-	docker run -v $PWD:/workspaces -w/workspaces name-test:latest /bin/bash -c "echo 'Ok' && c++ --version"
-
 .PHONY: run-env
 run-env:
-	docker run -v ~/workspaces:/workspaces docker.io/library/build-env /bin/bash -c "echo 'Ok' && c++ --version"
+	docker run -v ~/workspaces:/workspaces docker.io/djferen/portfolio:docker-image-integration /bin/bash -c "echo 'Ok' && c++ --version"
 
 .PHONY: docker-build
 docker-build:
-	docker run -v ~/workspaces:/workspaces docker.io/library/build-env /bin/bash -c "make build"
+	docker run -v /workspaces:/workspaces -w /workspaces/Portfolio docker.io/djferen/portfolio:docker-image-integration /bin/bash -c "make clean build"
 
 .PHONY: irun-env
 irun-env:
-	docker run -it -v /workspaces:/workspaces docker.io/library/build-env /bin/bash
+	docker run -it -v /workspaces:/workspaces -w /workspaces/Portfolio docker.io/djferen/portfolio:docker-image-integration /bin/bash
 
 .PHONY: build
 build:

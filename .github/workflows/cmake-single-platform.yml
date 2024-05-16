@@ -9,11 +9,11 @@ on:
 # Defines two custom environment variables for the workflow. These are used for the Container registry domain, and a name for the Docker image that this workflow builds.
 env:
   REGISTRY: registry-1.docker.io/v1
-  IMAGE_NAME: integration
+  IMAGE_NAME: portfolio:latest
   BUILDX_VERSION: latest
   BUILDKIT_IMAGE: moby/buildkit:buildx-stable-1
-  TEST_TAG: djferen/portfolio:latest
-  LATEST_TAG: djferen/portfolio:latest
+  TEST_TAG: djferen/${{IMAGE_NAME}}
+  LATEST_TAG: ${{TEST_TAG}}
 
 jobs:
   # 
@@ -48,6 +48,8 @@ jobs:
           platforms: linux/amd64 # ,linux/arm64
           push: true
           tags: ${{ env.LATEST_TAG }}
+      - name: Run docker based build
+        run: make docker-build
 
   build-and-push-alt:
     runs-on: ubuntu-latest
