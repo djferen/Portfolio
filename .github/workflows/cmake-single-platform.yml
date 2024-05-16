@@ -74,6 +74,9 @@ jobs:
         with:
           file: ./Dockerfile
       -
+        name: Debug
+        run: ls && docker images ls
+      -
         name: Inspect
         run: |
           docker buildx imagetools inspect name/app:latest --format '{{json .}}'
