@@ -19,7 +19,7 @@ ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # Install common depedency packages
-RUN apt install -y cmake make git software-properties-common build-essential clang-format
+RUN apt install -y cmake make git software-properties-common build-essential clang-format tree
 
 # Install stdc++ library
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y && \
