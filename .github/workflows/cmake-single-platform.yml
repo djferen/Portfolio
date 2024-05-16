@@ -9,11 +9,10 @@ on:
 # Defines two custom environment variables for the workflow. These are used for the Container registry domain, and a name for the Docker image that this workflow builds.
 env:
   REGISTRY: registry-1.docker.io/v1
-  IMAGE_NAME: djferen/portfolio
   BUILDX_VERSION: latest
   BUILDKIT_IMAGE: moby/buildkit:buildx-stable-1
-  TEST_TAG: ${{ env.IMAGE_NAME }}:test
-  LATEST_TAG: ${{ env.TEST_TAG }}:latest
+  LATEST_TAG: djferen/portfolio:latest
+  TEST_TAG: djferen/portfolio:latest  
 
 jobs:
   # 
