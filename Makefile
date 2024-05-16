@@ -62,15 +62,15 @@ build-env:
 
 .PHONY: run-env
 run-env:
-	docker run -v ~/workspaces:/workspaces docker.io/djferen/portfolio:docker-image-integration /bin/bash -c "echo 'Ok' && c++ --version"
+	docker run -v ~/workspaces:/workspaces docker.io/djferen/portfolio:latest /bin/bash -c "echo 'Ok' && c++ --version"
 
 .PHONY: docker-build
 docker-build:
-	docker run -v /workspaces:/workspaces -w /workspaces/Portfolio docker.io/djferen/portfolio:docker-image-integration /bin/bash -c "make clean build"
+	docker run -v /workspaces:/workspaces -w /workspaces/Portfolio docker.io/djferen/portfolio:latest /bin/bash -c "make clean build"
 
 .PHONY: irun-env
 irun-env:
-	docker run -it -v /workspaces:/workspaces -w /workspaces/Portfolio docker.io/djferen/portfolio:docker-image-integration /bin/bash
+	docker run -it -v /workspaces:/workspaces -w /workspaces/Portfolio docker.io/djferen/portfolio:latest /bin/bash
 
 .PHONY: build
 build:
