@@ -12,7 +12,7 @@ env:
   IMAGE_NAME: integration
   BUILDX_VERSION: latest
   BUILDKIT_IMAGE: moby/buildkit:buildx-stable-1
-  TEST_TAG: user/app:test
+  TEST_TAG: user/app:latest
   LATEST_TAG: user/app:latest
 
 jobs:
