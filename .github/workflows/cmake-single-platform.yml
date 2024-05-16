@@ -48,7 +48,7 @@ jobs:
           push: true
           tags: ${{ env.LATEST_TAG }}
       - name: Run docker based build
-        run: make run-env docker-build
+        run: make run-env ci-docker-build
 
   build:
     runs-on: ubuntu-latest
@@ -62,9 +62,6 @@ jobs:
 
     - name: Lint
       run: make check-format
-
-    - name: Build Env
-      run: make build-env run-env
 
     - name: Build Debug
       run: BUILD_TYPE=Debug make clean build

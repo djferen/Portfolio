@@ -64,12 +64,13 @@ build-env:
 run-env:
 	docker run -v ~/workspaces:/workspaces docker.io/djferen/portfolio:latest /bin/bash -c "echo 'Ok' && c++ --version"
 
-.PHONY: docker-build
-docker-build:
-	# 	docker run -v /workspaces:/workspaces -w /workspaces/Portfolio docker.io/djferen/portfolio:latest /bin/bash -c "pwd && ls .. && make clean build"
-	ls /home/runner/work/Portfolio/Portfolio
-	docker run -v /workspaces:/workspaces -w /home/runner/work/Portfolio/Portfolio docker.io/djferen/portfolio:latest /bin/bash -c "pwd && ls && make clean build"
-	
+.PHONY: ci-docker-build
+ci-docker-build:
+	docker run -w /home/runner/work/Portfolio/Portfolio docker.io/djferen/portfolio:latest /bin/bash -c "pwd && ls && make clean build"	
+
+.PHONY: local-docker-build
+local-docker-build:
+	docker run -v /workspaces:/workspaces -w /workspaces/Portfolio docker.io/djferen/portfolio:latest /bin/bash -c "pwd && ls && make clean build"	
 
 .PHONY: irun-env
 irun-env:
