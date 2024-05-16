@@ -67,7 +67,7 @@ run-env:
 .PHONY: docker-build
 docker-build:
 	# 	docker run -v /workspaces:/workspaces -w /workspaces/Portfolio docker.io/djferen/portfolio:latest /bin/bash -c "pwd && ls .. && make clean build"
-	ls /workspaces
+	ls /home/runner/work/Portfolio/Portfolio
 	docker run -v /workspaces:/workspaces -w /home/runner/work/Portfolio/Portfolio docker.io/djferen/portfolio:latest /bin/bash -c "pwd && ls && make clean build"
 	
 
