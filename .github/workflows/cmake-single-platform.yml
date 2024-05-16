@@ -12,8 +12,8 @@ env:
   IMAGE_NAME: djferen/portfolio
   BUILDX_VERSION: latest
   BUILDKIT_IMAGE: moby/buildkit:buildx-stable-1
-  TEST_TAG: ${{ IMAGE_NAME }}:test
-  LATEST_TAG: ${{ TEST_TAG }}:latest
+  TEST_TAG: ${{ env.IMAGE_NAME }}:test
+  LATEST_TAG: ${{ env.TEST_TAG }}:latest
 
 jobs:
   # 
