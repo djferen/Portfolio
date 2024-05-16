@@ -12,8 +12,8 @@ env:
   IMAGE_NAME: integration
   BUILDX_VERSION: latest
   BUILDKIT_IMAGE: moby/buildkit:buildx-stable-1
-  TEST_TAG: user/app:latest
-  LATEST_TAG: user/app:latest
+  TEST_TAG: djferen/portfolio:latest
+  LATEST_TAG: djferen/portfolio:latest
 
 jobs:
   # 
@@ -108,7 +108,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: my-docker-hub-namespace/my-docker-hub-repository
+          images: djferen/portfolio
 
       - name: Build and push Docker image
         id: push
@@ -117,9 +117,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: |
-            ${{ steps.meta.outputs.tags }}
-            name-test:latest
+          tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
       - name: Run docker based build
