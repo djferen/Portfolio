@@ -66,7 +66,7 @@ run-env:
 
 .PHONY: docker-build
 docker-build:
-	docker run -v /workspaces:/workspaces -w /workspaces/Portfolio docker.io/djferen/portfolio:latest /bin/bash -c "pwd && ls make clean build"
+	docker run -v /workspaces:/workspaces -w /workspaces/Portfolio docker.io/djferen/portfolio:latest /bin/bash -c "pwd && ls && make clean build"
 
 .PHONY: irun-env
 irun-env:
