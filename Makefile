@@ -66,7 +66,7 @@ run-env:
 
 .PHONY: ci-docker-build
 ci-docker-build:
-	docker run -v ./:/project -w /project docker.io/djferen/portfolio:latest /bin/bash -c "pwd && ls && echo root dir && ls / && tree /home/runner/work/ && make clean build"	
+	docker run -v ./:/project -w /project docker.io/djferen/portfolio:latest /bin/bash -c "pwd && ls && make clean build"	
 
 .PHONY: local-docker-build
 local-docker-build:
