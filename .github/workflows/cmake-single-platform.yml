@@ -3,8 +3,8 @@ name: Build and Test Portfolio
 on:
   push:
     branches: [ "*" ]
-#  pull_request:
-#    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
 
 env:
   REGISTRY: registry-1.docker.io/v1
