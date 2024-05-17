@@ -47,7 +47,7 @@ jobs:
           push: true
           tags: ${{ env.LATEST_TAG }}
 
-  build-in-docker:
+  build-cpp-in-docker:
     runs-on: ubuntu-latest
     environment: new-env
     steps:
@@ -58,7 +58,26 @@ jobs:
       - name: Run docker based testing latest
         run: docker compose run test-latest
 
-  build:
+  build-python:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Python
+      run: |
+        make install-python
+        make run-python
+
+  build-rust:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Rust
+      run: |
+        make install-rust
+        make build-rust
+        make test-rust
+
+  build-cpp:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -77,12 +96,3 @@ jobs:
     - name: Test Release
       working-directory: build
       run: make Test
-    - name: Python
-      run: |
-        make install-python
-        make run-python
-    - name: Rust
-      run: |
-        make install-rust
-        make build-rust
-        make test-rust
