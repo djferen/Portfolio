@@ -76,7 +76,7 @@ public:
 
 class Creator {
 public:
-  virtual ~Creator() {};
+  virtual ~Creator(){};
   virtual Product *FactoryMethod() const = 0;
   std::string SomeOperation() const {
     Product *product = this->FactoryMethod();

@@ -73,7 +73,7 @@ template <typename item_type> struct fifo {
       node = node->next;
     }
     return nullptr;
-  }  
+  }
 };
 
 #endif
