@@ -1,0 +1,35 @@
+
+services:
+
+  run-local:
+    image: local-env/latest
+    volumes:
+      - ./:/project
+    working_dir: /project
+
+  test-local:
+    image: local-env/latest
+    volumes:
+      - ./:/project
+    working_dir: /project
+    command: /bin/bash -c "make build && cd build && make Test"
+
+  run-latest:
+    image: docker.io/djferen/portfolio:latest
+    volumes:
+      - ./:/project
+    working_dir: /project
+
+  build-latest:
+    image: docker.io/djferen/portfolio:latest
+    volumes:
+      - ./:/project
+    working_dir: /project
+    command: /bin/bash -c "make build"
+
+  test-latest:
+    image: docker.io/djferen/portfolio:latest
+    volumes:
+      - ./:/project
+    working_dir: /project
+    command: /bin/bash -c "cd build && make Test"

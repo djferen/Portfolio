@@ -47,8 +47,10 @@ jobs:
           platforms: linux/amd64 # ,linux/arm64
           push: true
           tags: ${{ env.LATEST_TAG }}
-      - name: Run docker based build
-        run: make run-env ci-docker-build
+      - name: Run docker based building latest
+        run: docker compose run build-latest
+      - name: Run docker based testing latest
+        run: docker compose run test-latest
 
   build:
     runs-on: ubuntu-latest

@@ -56,25 +56,9 @@ build-rust: install-rust
 test-rust: build-rust
 	cargo run --manifest-path projects/hello-rust/hello_cargo/Cargo.toml
 
-.PHONY: build-env
-build-env:
-	docker build . -t build-env
-
-.PHONY: run-env
-run-env:
-	docker run -v ~/workspaces:/workspaces docker.io/djferen/portfolio:latest /bin/bash -c "echo 'Ok' && c++ --version"
-
-.PHONY: ci-docker-build
-ci-docker-build:
-	docker run -v ./:/project -w /project docker.io/djferen/portfolio:latest /bin/bash -c "pwd && ls && make clean build"	
-
-.PHONY: local-docker-build
-local-docker-build:
-	docker run -v /workspaces:/workspaces -w /workspaces/Portfolio docker.io/djferen/portfolio:latest /bin/bash -c "pwd && ls && make clean build"	
-
-.PHONY: irun-env
-irun-env:
-	docker run -it -v /workspaces:/workspaces -w /workspaces/Portfolio docker.io/djferen/portfolio:latest /bin/bash
+.PHONY: build-local-env
+build-local-env:
+	docker build . -t local-env/latest
 
 .PHONY: build
 build:
