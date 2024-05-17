@@ -19,10 +19,12 @@ format:
 .PHONY: install-python
 install-python:
 	sudo apt-get install python3-pip -y
+	pip install -r python/requirements.txt
 
 .PHONY: run-python
 run-python:
 	python python/djikstra.py
+	python python/mytf.py
 
 .PHONY: install-rust
 install-rust:
