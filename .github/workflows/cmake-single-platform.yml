@@ -6,7 +6,6 @@ on:
 #  pull_request:
 #    branches: [ "master" ]
 
-# Defines two custom environment variables for the workflow. These are used for the Container registry domain, and a name for the Docker image that this workflow builds.
 env:
   REGISTRY: registry-1.docker.io/v1
   BUILDX_VERSION: latest
@@ -15,10 +14,10 @@ env:
   TEST_TAG: djferen/portfolio:test  
 
 jobs:
-  # 
+
   docker:
     runs-on: ubuntu-latest
-    environment: new-env    
+    environment: new-env
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -47,6 +46,13 @@ jobs:
           platforms: linux/amd64 # ,linux/arm64
           push: true
           tags: ${{ env.LATEST_TAG }}
+
+  build-in-docker:
+    runs-on: ubuntu-latest
+    environment: new-env
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Run docker based building latest
         run: docker compose run build-latest
       - name: Run docker based testing latest
@@ -54,36 +60,27 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v3
-
     - name: Install Prerequisites
       run: |
         make install-prerequisites
-
     - name: Lint
       run: make check-format
-
     - name: Build Debug
       run: BUILD_TYPE=Debug make clean build
-
     - name: Test Debug
       working-directory: build
       run: make Test
-
     - name: Build Release
       run: make clean build
-  
     - name: Test Release
       working-directory: build
       run: make Test
-
     - name: Python
       run: |
         make install-python
         make run-python
-
     - name: Rust
       run: |
         make install-rust
