@@ -1,6 +1,12 @@
 
 services:
 
+  run-ros:
+    image: ros
+    volumes:
+      - ./:/project
+    working_dir: /project
+
   run-local:
     image: local-env/latest
     volumes:
