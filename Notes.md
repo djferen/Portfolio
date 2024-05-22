@@ -7,3 +7,17 @@ https://docs.github.com/en/actions/creating-actions/metadata-syntax-for-github-a
 
 https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action
 
+https://hub.docker.com/_/ros/
+
+PM delivery
+Advertise
+Phone Number or Email Sign Up
+Address
+Payment
+
+Tablet Sales
+
+5 tablets - Sales Front
+Ebay Integrated
+
+

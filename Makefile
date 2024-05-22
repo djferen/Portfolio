@@ -22,7 +22,7 @@ install-python:
 	pip install -r python/requirements.txt
 
 .PHONY: run-python
-run-python:
+run-python: install-python
 	python python/djikstra.py
 	python python/mytf.py
 
