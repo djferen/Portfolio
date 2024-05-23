@@ -1,7 +1,7 @@
 import cv2
 import random
 
-img = cv2.imread('test/test.jpg', 0)
+img = cv2.imread('test/test.jpg')
 
 print(img)
 
