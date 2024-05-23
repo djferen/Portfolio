@@ -18,13 +18,14 @@ format:
 
 .PHONY: install-python
 install-python:
-	sudo apt-get install python3-pip -y
+	sudo apt-get install python3-pip python3-opencv -y
 	pip install -r python/requirements.txt
 
 .PHONY: run-python
-run-python: install-python
-	python python/djikstra.py
-	python python/mytf.py
+run-python:
+	python python/cv.py
+	echo python python/djikstra.py
+	echo python python/mytf.py
 
 .PHONY: install-rust
 install-rust:

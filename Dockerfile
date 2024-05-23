@@ -9,17 +9,14 @@ the Services."
 # Disable Prompt During Packages Installation
 ARG DEBIAN_FRONTEND=noninteractive
 
-# Update Ubuntu Software repository
-RUN apt update
-
 # Install locales and language
-RUN apt -y install locales && locale-gen en_US.UTF-8
+RUN apt update && apt -y install locales && locale-gen en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
 # Install common depedency packages
-RUN apt install -y cmake make git software-properties-common build-essential clang-format tree
+RUN apt install -y cmake make git software-properties-common build-essential clang-format tree python3-opencv
 
 # Install stdc++ library
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test -y && \

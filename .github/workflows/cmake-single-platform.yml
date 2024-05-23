@@ -66,6 +66,9 @@ jobs:
       run: |
         make install-python
         make run-python
+      with:
+        name: Output images
+        path: test/*.jpg
 
   build-rust:
     runs-on: ubuntu-latest
