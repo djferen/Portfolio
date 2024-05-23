@@ -61,7 +61,7 @@ jobs:
   build-python:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
     - name: Python
       run: |
         make install-python
