@@ -14,7 +14,7 @@ def detect_face(image_path, dst_path):
     for (x, y, w, h) in faces:
         cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
 
-    cv2.imgwrite(image, dst_path)
+    cv2.imwrite(dst_path, image)
 
     # Print number of detected faces
     print(image_path)
