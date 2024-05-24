@@ -23,7 +23,7 @@ install-python:
 
 .PHONY: run-python
 run-python:
-	python python/cv.py
+	python python/objectDetection.py
 	echo python python/djikstra.py
 	echo python python/mytf.py
 
