@@ -5,6 +5,7 @@ def detect_face(image_path, dst_path):
     image = cv2.imread(image_path)
 
      # Load a pre-trained object detection cascade classifier
+     # https://github.com/opencv/opencv/blob/4.x/data/haarcascades/haarcascade_frontalface_default.xml
     face_cascade = cv2.CascadeClassifier('python/haarcascade_frontalface_default.xml')
 
     # Detect faces in the image
