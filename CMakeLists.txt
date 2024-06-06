@@ -4,7 +4,7 @@ project (portfolio)
 include_directories(include)
 file(MAKE_DIRECTORY build)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/build)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
