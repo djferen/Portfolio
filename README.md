@@ -11,11 +11,11 @@ The C++ portion of this `Portfolio` project contains a simple, extensible librar
 
 **Environments:**
 
-This supports Github Action code for building and testing on github.com and running the same Github action code locally with [act](https://github.com/nektos/act) so this can be developed and tested locally.
+Docker images are included and used for the build and test environments in both CI and local environments.
 
-**General Setup Instructions:**
+Also included is Github Action code for building and testing on github.com and running the same Github action code locally with [act](https://github.com/nektos/act) so this can be developed and tested locally.
 
-A C/C++ development environment with `CMake`, `C++` compiler, `Make` and `gtest`, etc. are all needed to be installed.
+A C/C++ development environment with `CMake`, `C++` compiler, `Make` and `gtest`, etc. 
 
 Install prerequisites with: `make install-prerequisites`
 
