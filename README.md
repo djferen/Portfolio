@@ -2,7 +2,9 @@
 
 **Purpose**
 
-This `Portfolio` project contains a simple, extensible library creation and test infrastructure pattern.  This project functions as a library creation tool in that a new C++ library may be created and tested when the following is added:
+This `Portfolio` contains a variety of applications written in the following languages: C++, Python, and Rust.
+
+The C++ portion of this `Portfolio` project contains a simple, extensible library creation and test infrastructure pattern.  This project functions as a library creation tool in that a new C++ library may be created and tested when the following is added:
 1. a *.h file in the include directory for adding library code
 2. a test*.cpp file in the test directory to test the library code
 3. update the `CMakeLists.txt` file to define its build and test target configurations
