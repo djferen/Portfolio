@@ -47,11 +47,23 @@ bool is_balanced(string expression) {
 }
 
 int main() {
-  ifstream inf("./test/bb-test", ifstream::in);
-  ifstream einf("./test/bb-exp", ifstream::in);
+  int n = 0;
+  const string infile = "../test/bb-test";
+  const string expfile = "../test/bb-exp";
+  ifstream inf(infile, ifstream::in);
+  ifstream einf(expfile, ifstream::in);
 
-  int n;
+  if (!inf) {
+    cerr << "Unable to open file: " << infile << endl;
+    return -1;
+  }
+
   inf >> n;
+
+  if (!einf) {
+    cerr << "Unable to open file: " << expfile << endl;
+    return -1;
+  }
 
   string input, expected;
 
