@@ -53,10 +53,13 @@ install-prerequisites:
 build-rust: install-rust
 	cargo check --manifest-path projects/hello-rust/hello_cargo/Cargo.toml
 	cargo build --manifest-path projects/hello-rust/hello_cargo/Cargo.toml
+	cargo check --manifest-path projects/hello-threads/Cargo.toml
+	cargo build --manifest-path projects/hello-threads/Cargo.toml
 
 .PHONY: test-rust
 test-rust: build-rust
 	cargo run --manifest-path projects/hello-rust/hello_cargo/Cargo.toml
+	cargo run --manifest-path projects/hello-threads/Cargo.toml
 
 .PHONY: build-local-env
 build-local-env:
