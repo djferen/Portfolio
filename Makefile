@@ -25,6 +25,7 @@ install-python:
 run-python:
 	python python/djikstra.py
 	python python/mytf.py
+	python python/arrays.py
 
 .PHONY: install-rust
 install-rust:
@@ -66,6 +67,10 @@ build-local-env:
 build:
 	cmake -B build -DCMAKE_BUILD_TYPE=${BUILD_TYPE} -DCMAKE_VERBOSE_MAKEFILE=${VERBOSE}
 	cmake --build build --config ${BUILD_TYPE}
+
+.PHONY: test
+test: build
+	cd build && make Test
 
 .PHONY: clean
 clean:

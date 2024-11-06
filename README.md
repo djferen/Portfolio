@@ -32,11 +32,7 @@ C++ format maintenance is made easy by using tools:
 
 Run tests with:
 
-  `make Test`
-
-or 
-
-  `make TestFIFO`
+  `make test`
 
 Note: other unit tests may be run, see the `CMakeLists.txt` file for more of them.
 
