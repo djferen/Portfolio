@@ -26,6 +26,9 @@ run-python:
 	python python/djikstra.py
 	python python/mytf.py
 	python python/arrays.py
+	python python/iterative_dfs.py
+	python python/recursive_dfs.py
+	python python/questions.py
 
 .PHONY: install-rust
 install-rust:
