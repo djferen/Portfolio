@@ -13,22 +13,28 @@ Additionally, a Docker Compose file [docker-compose.yml](docker-compose.yml) was
 Run:
 
   `docker compose run build-latest`
+
   `docker compose run test-latest`
 
 **Direct Installation of Build Dependencies**
 
 Warning: This command will modify your environment by installing sofware so it is recommended you do this in a virtual environment!
 
-Install prerequisites with: `make install-prerequisites`
+Install prerequisites with:
+
+  `make install-prerequisites`
 
 **C++ Lint Instructions:**
 
 C++ format maintenance is made easy by using tools:
 
-1. Run the format checker: `make check-format`
-2. Run the auto-formatter: `make format`
+Run the format checker and auto-formatter:
+
+  `make check-format format`
 
 **Build Instructions:**
+
+Once the build prerequisistes are satisfied then build with:
 
   `make build`
 
@@ -69,11 +75,11 @@ The library of C++ data structures code and test code are contained in the follo
 
 **Cloud CI Environment**
 
-There is support for Github Action code for building and testing on github.com and running the same Github action code in the Github cloud enviroments, see [Github Workflow](.github/workflows/cmake-single-platform.yml).
+There is support for Github Action code for building and testing the Github action code in the Github cloud enviroments, see [Github Workflow](.github/workflows/cmake-single-platform.yml).
 
 **Local CI Environment**
 
-There is support for Github Action code for building and testing on github.com and running the same Github action code locally with [act](https://github.com/nektos/act).
+There is support for Github Action code for building and testing locally; how to run the Github action code locally with [act](https://github.com/nektos/act).
 
 **Implementation Note**
 
