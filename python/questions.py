@@ -39,10 +39,7 @@ print(size_of_shortest_sequence([]))
 
 print(size_of_shortest_sequence(None))
 
-
-import os
-
-def find_file_by_attribute(directory, **kwargs):
-  if 'filesize' in kwargs:
-    found_files = os. kwargs['filesize']
-  
+#import os
+#def find_file_by_attribute(directory, **kwargs):
+#  if 'filesize' in kwargs:
+#    found_files = os. kwargs['filesize']
