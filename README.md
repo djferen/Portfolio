@@ -2,7 +2,7 @@
 
 **Purpose**
 
-This `Portfolio` contains a variety of applications written in the following languages: C++, Python, and Rust.As well as build files found in CMake, Makefile, and Docker Compose in support of this project.
+This `Portfolio` contains a variety of applications written in the following languages: C++ (mostly), Python (some), and Rust (little).  Also cotained herein are build files found in CMake, Makefile, and Docker Compose in support of this project.
 
 **Virtualization for Build and Test**
 
