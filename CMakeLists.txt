@@ -19,6 +19,7 @@ add_executable(test-dijkstra test/test-dijkstra.cpp)
 add_executable(test-minheap test/test-minheap.cpp)
 add_executable(test-poly test/test-poly.cpp)
 add_executable(test-filesystem test/test-filesystem.cpp)
+add_executable(test-parenthesis test/test-parenthesis.cpp)
 add_executable(test-roman puzzles/roman.cpp)
 add_executable(test-getlongestword puzzles/getlongestword.cpp)
 add_executable(test-lettercapitalize puzzles/lettercapitalize.cpp)
@@ -87,9 +88,11 @@ add_custom_target(TestKeyPad test-keypad
                   DEPENDS test-keypad)
 add_custom_target(TestLL test-linkedlist
                   DEPENDS test-linkedlist)
+add_custom_target(TestParenthesis test-parenthesis
+                  DEPENDS test-parenthesis)
                                     
 add_custom_target(Test
-                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestPoly TestFS TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC TestF TestLL TestKeyPad)
+                  DEPENDS TestNode TestStack TestFIFO TestSFIFO TestDLL TestBTN TestD TestMH TestPoly TestFS TestR TestGLW TestLC TestMS TestTC TestAS TestH TestBB TestQ TestHC TestF TestLL TestKeyPad TestParenthesis)
 
 enable_testing()
 find_package(GTest REQUIRED)
