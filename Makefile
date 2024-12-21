@@ -29,6 +29,7 @@ run-python:
 	python python/iterative_dfs.py
 	python python/recursive_dfs.py
 	python python/questions.py
+	python python/fill_region.py
 
 .PHONY: install-rust
 install-rust:
