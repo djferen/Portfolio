@@ -1,6 +1,7 @@
 #include <algorithm>
 #include <iostream>
 #include <stack>
+#include <cstdint>
 
 // Given an arbitrary string of characters, count and return the maximum level
 // of nested parentheses.
