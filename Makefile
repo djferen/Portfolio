@@ -30,6 +30,7 @@ run-python:
 	python python/recursive_dfs.py
 	python python/questions.py
 	python python/fill_region.py
+	python python/decode_message.py
 
 .PHONY: install-rust
 install-rust:
